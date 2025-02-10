@@ -1,0 +1,14 @@
+---
+import '../styles/global.css';
+const { text, isbold } = Astro.props;
+---
+<style>
+    a {
+        font-weight: ${isbold ? 500 : 'normal'}
+    }
+    a::hover {
+        color: var(--mered);
+    }
+</style>
+
+<a>{text}</a>

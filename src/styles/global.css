@@ -1,0 +1,25 @@
+:root {
+    --bgwhite: #fffffe;
+    --mainred: #962102;
+    --mainblack: #140808;
+}
+
+/* Utility */
+.hide {
+    display: none;
+}
+
+
+body {
+    background-color: var(--bgwhite);
+    font-family:sans-serif;
+    padding:5%;
+}
+
+h1, h2 {
+    color: var(--mainred);
+}
+
+p, h3 {
+    color: var(--mainblack);
+}

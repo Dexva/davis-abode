@@ -1,16 +1,48 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TextLink from '../components/TextLink.astro';
 
+const foreword = "hi, i'm";
+const name = "davis!";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+	h1, p {
+		padding:0;
+		margin:0;
+	}
+	.foreword {
+		font-weight:300;
+		font-size:300%;
+		padding-bottom: 0%;
+	}
+	.name {
+		font-weight:900;
+		font-size: 500%;
+	}
+	.subtext {
+		padding-top:10%;
+		font-size:110%;
+	}
+
+
+	@media screen and (min-width: 636px) {
+		br {
+			display: unset;
+		}
+	}
+</style>
+
+<BaseLayout>
+	<h1 class="foreword">{foreword}</h1>
+	<h1 class="name">{name}</h1>
+
+	<p class="subtext">
+		i am a <TextLink text="Filipino intl. undergraduate student" isbold={true}/>
+		based in Kyoto,
+		<br class="hide"/>
+		an avid sinigang eater, and a scenery catcher. <br/><br/>
+		welcome! 👋
+	</p>
+</BaseLayout>
+
