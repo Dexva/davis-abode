@@ -9,7 +9,6 @@
     display: none;
 }
 
-
 body {
     background-color: var(--bgwhite);
     font-family:sans-serif;
@@ -22,4 +21,17 @@ h1, h2 {
 
 p, h3 {
     color: var(--mainblack);
+    line-height:1.25;
+}
+
+a {
+    text-decoration:none;
+    color: inherit;
+    padding:3px;
+}
+
+a:hover {
+    color: var(--bgwhite);
+    background-color: var(--mainred);
+    padding:3px;
 }

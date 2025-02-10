@@ -11,6 +11,7 @@ const name = "davis!";
 		padding:0;
 		margin:0;
 	}
+
 	.foreword {
 		font-weight:300;
 		font-size:300%;
@@ -25,8 +26,7 @@ const name = "davis!";
 		font-size:110%;
 	}
 
-
-	@media screen and (min-width: 636px) {
+	@media screen and (min-width: 620px) {
 		br {
 			display: unset;
 		}
@@ -38,11 +38,16 @@ const name = "davis!";
 	<h1 class="name">{name}</h1>
 
 	<p class="subtext">
-		i am a <TextLink text="Filipino intl. undergraduate student" isbold={true}/>
-		based in Kyoto,
+		I am a Filipino <TextLink url="./" text="international student" isBold={true}/>
+		based in Kyoto.
+
 		<br class="hide"/>
-		an avid sinigang eater, and a scenery catcher. <br/><br/>
-		welcome! 👋
+		an avid <TextLink url="./" text="sinigang eater" isBold={true}/>,
+		and a <TextLink url="./" text="scenery catcher" isBold={true}/>.
+		
+		<br/><br/>
+		
+		ようこそ 👋
 	</p>
 </BaseLayout>
 
