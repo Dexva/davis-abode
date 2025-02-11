@@ -26,24 +26,24 @@ const name = "davis!";
 		font-size:110%;
 	}
 
-	@media screen and (min-width: 620px) {
+	@media screen and (min-width: 636px) {
 		br {
 			display: unset;
 		}
 	}
 </style>
 
-<BaseLayout>
+<BaseLayout pageTitle="">
 	<h1 class="foreword">{foreword}</h1>
 	<h1 class="name">{name}</h1>
 
 	<p class="subtext">
-		I am a Filipino <TextLink url="./" text="international student" isBold={true}/>
+		I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
 		based in Kyoto.
 
 		<br class="hide"/>
-		an avid <TextLink url="./" text="sinigang eater" isBold={true}/>,
-		and a <TextLink url="./" text="scenery catcher" isBold={true}/>.
+		an avid <TextLink url="/blog" text="sinigang eater" isBold={true}/>,
+		and a <TextLink url="/photos" text="scenery catcher" isBold={true}/>.
 		
 		<br/><br/>
 		
