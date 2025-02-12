@@ -2,6 +2,7 @@
     --bgwhite: #fffffe;
     --mainred: #962102;
     --mainblack: #140808;
+    --maingray: #8b8b8b;
 }
 
 /* Utility */
@@ -22,10 +23,11 @@ div, nav {
     flex-direction: column;
 }
 
+
 /* fonts */
 
-p, h1, h2, h3 {
-    margin:0;
+.nomargin {
+  margin:0;
 }
 
 h1, h2 {
@@ -49,7 +51,7 @@ a {
     padding:2px;
 }
 
-a:hover {
+a:hover, a:active {
     color: var(--bgwhite);
     background-color: var(--mainred);
     padding:2px;
@@ -115,4 +117,21 @@ a:hover {
     display: none;
   }
 
+}
+
+/* other classes */
+.noselect {
+  user-select:none;
+}
+
+
+.floating {
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease-out;
+}
+.floating:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 2px rgba(0,0,0,0.2); /* Adds shadow for depth */
+}
+.floating:active{
+  transform:translateY(1px);
 }

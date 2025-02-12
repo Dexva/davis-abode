@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+const { title , subtitle, route } = Astro.props;
+---
+
+<style>
+    .tab {
+        margin-bottom:10px;
+        padding:2%;
+        border: 2px solid var(--mainblack);
+        border-radius:20px;
+        opacity:0.4;
+        background-color:transparent;
+    }
+    .tab h3 {
+        font-weight:bold;
+    }
+    .tab a:hover {
+        background-color:transparent;
+    }
+    .tab:hover {
+        opacity: 0.8;
+    }
+    .tab a:active{
+        color: var(--mainred);
+    }
+
+</style>
+
+<div class="tab floating">
+    <a href={route}>
+        <h3 class="nomargin noselect">{title}.</h3>
+        <p class="nomargin noselect">{subtitle}</p>
+    </a>
+</div>

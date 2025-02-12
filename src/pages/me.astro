@@ -1,13 +1,30 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Tab from '../components/Tab.astro';
+
+const foreword = "Here are some fun things I've done:";
+const allContent = Object.values(import.meta.glob('./me/*.md', { eager: true }));
+const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
+
 ---
 
 <style>
 </style>
 
 <BaseLayout pageTitle="/ me">
-    <h1>すみません,</h1>
-    <h1>WIP (╯°□°）╯</h1>
+    <h2 class="nomargin">知り合う</h2>
+    <h1 class="nomargin">meet, me!</h1>
+
+    <p>{foreword}</p>
+
+    
+    <h2>code_</h2>
+    {codePosts.map((post:any)=>(
+    <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
+    ))}
+    <h2>papers_</h2>
+
+    <h2>engineering_</h2>
 </BaseLayout>
 
