@@ -31,17 +31,17 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
 
     <h2>code_</h2>
     {codePosts.map((post:any)=>(
-    <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
+    <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
     ))}
 
     <h2>engineering_</h2>
     {enggPosts.map((post:any)=>(
-        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
+        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
     ))}
 
     <h2>papers_</h2>
     {papersPosts.map((post:any)=>(
-        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
+        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
     ))}
     
 </BaseLayout>

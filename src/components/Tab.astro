@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const { title , subtitle, route } = Astro.props;
+const { title , subtitle, route, thumbnail } = Astro.props;
 ---
 
 <style>
@@ -24,11 +24,17 @@ const { title , subtitle, route } = Astro.props;
     .tab a:active{
         color: var(--mainred);
     }
+    .tab img {
+        max-width: 500px;
+        height: 30px;
+        overflow:hidden;
+    }
 
 </style>
 
 <div class="tab floating">
     <a href={route}>
+        <img src={thumbnail}>
         <h3 class="nomargin noselect">{title}</h3>
         <p class="nomargin noselect">{subtitle}</p>
     </a>
