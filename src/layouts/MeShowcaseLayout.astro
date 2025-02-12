@@ -42,7 +42,14 @@ let height = frontmatter.image.height * scale;
         float:right;
     }
 
-    @media screen and (min-width: 636px) {
+    .right img {
+        max-width: 500px;
+        width: 90%;
+        height: auto; 
+        display: block; 
+    }
+
+    @media screen and (min-width: 800px) {
         .container {
             display: flex;
             flex-direction: row;

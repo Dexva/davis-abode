@@ -1,30 +1,48 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TextLink from '../components/TextLink.astro';
 import Tab from '../components/Tab.astro';
 
-const foreword = "Here are some fun things I've done:";
 const allContent = Object.values(import.meta.glob('./me/*.md', { eager: true }));
 const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
-
+const enggPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("engineering"));
+const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("paper"));
 ---
 
 <style>
 </style>
 
-<BaseLayout pageTitle="/ me">
+<BaseLayout pageTitle="me">
     <h2 class="nomargin">知り合う</h2>
     <h1 class="nomargin">meet, me!</h1>
-
-    <p>{foreword}</p>
-
     
+    <p>
+        My name is Davis Nicholo A. Magpantay...
+        which is quite long, so I simply go by "Davis".
+        
+        <br><br>
+        
+        I graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={true} /> last 2024
+        and am now studying at <TextLink text="Kyoto University 京都大学" url="https://www.kyoto-u.ac.jp/en" isBold={true} />
+        as an <TextLink text="iUP scholar" url="https://www.iup.kyoto-u.ac.jp/" isBold={true}/>. This April 2025, I'm entering the University's
+        工学部理工科学科 (Faculty of Engineering, Department of Chemical Science and Technology).        
+    </p>
+
     <h2>code_</h2>
     {codePosts.map((post:any)=>(
     <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
     ))}
-    <h2>papers_</h2>
 
     <h2>engineering_</h2>
+    {enggPosts.map((post:any)=>(
+        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
+    ))}
+
+    <h2>papers_</h2>
+    {papersPosts.map((post:any)=>(
+        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url}/>
+    ))}
+    
 </BaseLayout>
 

@@ -3,10 +3,12 @@ import '../styles/global.css';
 const { url, text, isBold, isItalic } = Astro.props;
 ---
 <style>
-
+    .textlink {
+        cursor: pointer;
+    }
 </style>
 
-<a href={url} style={`
+<a class="textlink" href={url} target="_blank" style={`
 font-weight: ${isBold ? 'bold' : 'normal'};
 font-style: ${isItalic ? 'italic' : 'normal'};
 `}>{text}</a>

@@ -5,7 +5,7 @@ pubDate: 2025-02-12
 subtitle: 'my first "game"'
 author: 'Davis'
 image:
-    url: '/assets/me/1_space-jam.jpg'
+    url: '/assets/me/1_space-jam.png'
     alt: 'menu of Space Jam'
     width: 942
     height: 449
