@@ -7,12 +7,16 @@ const { title , subtitle, route, thumbnail } = Astro.props;
     .tab {
         margin-bottom:10px;
         padding:2%;
-        border: 2px solid var(--mainblack);
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2); /* Adds shadow for depth */
         border-radius:20px;
-        opacity:0.4;
+        opacity:0.6;
         background-color:transparent;
     }
+    .tab:active {
+        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.5);
+    }
     .tab h3 {
+        padding-top: 3%;
         font-weight:bold;
     }
     .tab a:hover {
@@ -25,16 +29,24 @@ const { title , subtitle, route, thumbnail } = Astro.props;
         color: var(--mainred);
     }
     .tab img {
-        max-width: 500px;
-        height: 30px;
+        position: relative;
+        margin: -2%;
+        border-radius: 20px 20px 0px 0px;
+        width: 104%;
+        max-height: 200px;
+        object-fit:cover;
+        object-position:top;
         overflow:hidden;
+    }
+    .thumbnail {
+        height: 500px;
     }
 
 </style>
 
 <div class="tab floating">
     <a href={route}>
-        <img src={thumbnail}>
+        <img class="thumbnail ${!thumbnail ? 'hidden' : ''}" src={thumbnail}>
         <h3 class="nomargin noselect">{title}</h3>
         <p class="nomargin noselect">{subtitle}</p>
     </a>

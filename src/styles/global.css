@@ -1,6 +1,6 @@
 :root {
     --bgwhite: #fffffe;
-    --mainred: #962102;
+    --mainred: #962102; /*rgba(150, 33, 2, 1)*/
     --mainblack: #140808;
     --maingray: #8b8b8b;
 }
@@ -134,9 +134,9 @@ a:hover, a:active {
   transition: transform 0.1s ease-out, box-shadow 0.3s ease-out;
 }
 .floating:hover{
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 2px rgba(0,0,0,0.2); /* Adds shadow for depth */
 }
 .floating:active{
-  transform:translateY(1px);
+  transform:translateY(2px);
 }

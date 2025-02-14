@@ -11,6 +11,19 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
 ---
 
 <style>
+    @media screen and (min-width: 636px) {
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 10px; 
+            width: 100%;       
+        }
+        .container div {
+            width: 50%;
+            display:block;
+        }
+    }
 </style>
 
 <BaseLayout pageTitle="me">
@@ -30,19 +43,25 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
     </p>
 
     <h2>code_</h2>
-    {codePosts.map((post:any)=>(
-    <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-    ))}
+    <div class="container">
+        {codePosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
 
     <h2>engineering_</h2>
-    {enggPosts.map((post:any)=>(
-        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-    ))}
-
-    <h2>papers_</h2>
-    {papersPosts.map((post:any)=>(
-        <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-    ))}
+    <div class="container">
+        {enggPosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
     
+    <h2>papers_</h2>
+    <div class="container">
+        {papersPosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+
 </BaseLayout>
 
