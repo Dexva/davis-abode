@@ -1,9 +1,16 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
 ---
 
 <style>
+    .container {
+        margin-top:5%;
+    }
+    .container a {
+        cursor: pointer;
+    }
 </style>
 
 <BaseLayout pageTitle="blog">
@@ -11,7 +18,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1 class="nomargin">bites and bonds</h1>
     <p><i>food recipes, shower thoughts, and everything in between.</i></p>
 
-    <h1>C O M I N G . S O O N.</h1>
+    <div class="container">
+        {allContent.map((post:any)=>(
+            <a href={post.url}><h3>{post.frontmatter.title}</h3></a>
+        ))}
+    </div>    
 
 
 </BaseLayout>

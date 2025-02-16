@@ -11,6 +11,9 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
 ---
 
 <style>
+    .foreword {
+        text-align: justify;
+    }
     @media screen and (min-width: 636px) {
         .container {
             display: flex;
@@ -30,15 +33,15 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
     <h2 class="nomargin">知り合う</h2>
     <h1 class="nomargin">meet, me!</h1>
     
-    <p>
+    <p class="foreword">
         My name is Davis Nicholo A. Magpantay...
-        which is quite long, so I simply go by "Davis".
+        which is quite long, so I simply go by <i>Davis</i>.
         
         <br><br>
         
-        I graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={true} /> last 2024
-        and am now studying at <TextLink text="Kyoto University 京都大学" url="https://www.kyoto-u.ac.jp/en" isBold={true} />
-        as an <TextLink text="iUP scholar" url="https://www.iup.kyoto-u.ac.jp/" isBold={true}/>. This April 2025, I'm entering the University's
+        I graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={false} /> last 2024
+        and am now studying at <TextLink text="Kyoto University 京都大学" url="https://www.kyoto-u.ac.jp/en" isBold={false} />
+        as an <TextLink text="iUP scholar" url="https://www.iup.kyoto-u.ac.jp/" isBold={false}/>. This April 2025, I'm entering the University's
         工学部理工科学科 (Faculty of Engineering, Department of Chemical Science and Technology).        
     </p>
 

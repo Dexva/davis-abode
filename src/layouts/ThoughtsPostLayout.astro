@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+import BaseLayout from './BaseLayout.astro';
+import Prose from '../components/Prose.astro';
+const { frontmatter } = Astro.props;
+
+const returnMessage = "<<";
+---
+<style>
+    .return {
+        color: var(--mainred);
+        font-weight:bold;
+        cursor: pointer;
+    }
+    .return:hover {
+        color: var(--bgwhite);
+    }
+
+    .pubdate {
+        margin-bottom:1%;
+    }
+    .subtitle {
+        color: var(--mainred);
+        font-style: italic;
+        margin-top:0px;
+        margin-bottom:10%;
+    }
+
+</style>
+
+<BaseLayout pageTitle = {frontmatter.title}>
+    <p class="nomargin noselect"><a class="return" href="/thoughts/">{returnMessage}</a></p>
+
+    <p>{frontmatter.pubDate}</p>
+    <h1 class="title nomargin">{frontmatter.title}</h1>
+    <p class="subtitle">{frontmatter.subtitle}</p>
+    
+    <Prose>
+        <slot/>
+    </Prose>
+</BaseLayout>

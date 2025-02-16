@@ -17,7 +17,7 @@
 
 body {
     background-color: var(--bgwhite);
-    font-family:sans-serif;
+    font-family:"Open Sans",sans-serif;
     padding:5%;
     display: flex;
     flex-direction: column;
@@ -52,14 +52,15 @@ p {font-size: 110%} /*original:100%*/
 
 a {
     text-decoration:none;
-    color: inherit;
-    padding:2px;
+    color: var(--mainred);
+    padding:1px;
 }
 
 a:hover, a:active {
     color: var(--bgwhite);
     background-color: var(--mainred);
-    padding:2px;
+    padding:1px;
+    cursor:help;
 }
 
 /* nav styles */
