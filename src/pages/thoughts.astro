@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ThoughtsTab from '../components/ThoughtsTab.astro';
+
 const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
 ---
 
@@ -11,16 +13,19 @@ const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: tr
     .container a {
         cursor: pointer;
     }
+    .subtitle {
+        margin-bottom: 2em;
+    }
 </style>
 
 <BaseLayout pageTitle="blog">
     <h2 class="nomargin bold">理由</h2>
     <h1 class="nomargin bold">bites and bonds</h1>
-    <p><i>food recipes, shower thoughts, and everything in between.</i></p>
+    <p class="subtitle"><i>food recipes, shower thoughts, and everything in between.</i></p>
 
     <div class="container">
         {allContent.map((post:any)=>(
-            <a href={post.url}><h3>{post.frontmatter.title}</h3></a>
+            <ThoughtsTab url={post.url} frontmatter={post.frontmatter}/>
         ))}
     </div>    
 
