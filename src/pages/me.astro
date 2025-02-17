@@ -11,11 +11,15 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
 ---
 
 <style>
-    .foreword {
-        text-align: justify;
+    
+    .section {
+        margin-top: 5%;
+        margin-bottom: 2%;
     }
+
     @media screen and (min-width: 636px) {
         .container {
+            margin-top: 0;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -30,10 +34,10 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
 </style>
 
 <BaseLayout pageTitle="me">
-    <h2 class="nomargin">知り合う</h2>
-    <h1 class="nomargin">meet, me!</h1>
+    <h2 class="title">知り合う</h2>
+    <h1 class="title">meet, me!</h1>
     
-    <p class="foreword">
+    <p class="foreword justify">
         My name is Davis Nicholo A. Magpantay...
         which is quite long, so I simply go by <i>Davis</i>.
         
@@ -45,21 +49,21 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
         工学部理工科学科 (Faculty of Engineering, Department of Chemical Science and Technology).        
     </p>
 
-    <h2>code_</h2>
+    <h2 class="bold section">code_</h2>
     <div class="container">
         {codePosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
         ))}
     </div>
 
-    <h2>engineering_</h2>
+    <h2 class="bold section">engineering_</h2>
     <div class="container">
         {enggPosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
         ))}
     </div>
     
-    <h2>papers_</h2>
+    <h2 class="bold section">papers_</h2>
     <div class="container">
         {papersPosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>

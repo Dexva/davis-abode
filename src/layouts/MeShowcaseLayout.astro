@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
+import Prose from '../components/Prose.astro';
+
 const { frontmatter } = Astro.props;
 const returnMessage = "<<";
 
@@ -12,24 +14,31 @@ let height = frontmatter.image.height * scale;
     .return {
         color: var(--mainred);
         font-weight:bold;
+        cursor: pointer;
     }
     .return:hover {
         color: var(--bgwhite);
     }
 
+    .item {
+        margin-top: 5%;
+    }
+
     .right {
-        justify-content: center; /* Centers the image horizontally */
-        align-items: center; /* Centers the image vertically */
-        text-align: center; /* Ensures text and image are centered */
+        justify-content: center;
+        align-items: center; 
+        text-align: center;
     } 
 
     .melink {
         border: 1px solid var(--mainred);
         color: var(--mainred);
         border-radius:1000px;
+        margin-top: 1em;
         margin-bottom:5%;
         padding:10px 20px;
         display:inline-block;
+        cursor: ne-resize
     }
     .melink:hover {
         background-color:var(--mainred);
@@ -70,7 +79,11 @@ let height = frontmatter.image.height * scale;
 <BaseLayout pageTitle = {frontmatter.title}>
     <p class="nomargin noselect"><a class="return" href="/me/">{returnMessage}</a></p>
     <div class="container">
-        <div class="item"><slot/></div>
+        <div class="item">
+            <Prose>
+                <slot/>
+            </Prose>
+        </div>
         <div class="right item">
             <Image src={frontmatter.image.url} alt={frontmatter.image.alt} width={width} height={height}/>
             <p><a href={frontmatter.externalURL} target="_blank" class="melink noselect floating">{frontmatter.linkText}</a></p>

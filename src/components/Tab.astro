@@ -7,30 +7,32 @@ const { title , subtitle, route, thumbnail } = Astro.props;
     .tab {
         margin-bottom:10px;
         padding:2%;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.2); 
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2); 
         border-radius:20px;
-        opacity:0.6;
+        opacity:0.8;
         background-color:transparent;
     }
+    .tab:hover {
+        opacity: 1;
+    }
     .tab:active {
-        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.5);
+        box-shadow: 0 10px 10px rgba(150, 33, 2, 0.5);
     }
     .tab h3 {
         padding-top: 3%;
         font-weight:bold;
     }
+    .tab a {
+        cursor: pointer;
+    }
     .tab a:hover {
         background-color:transparent;
-    }
-    .tab:hover {
-        opacity: 0.8;
     }
     .tab a:active{
         color: var(--mainred);
     }
     .tab img {
         position: relative;
-        margin: -2%;
         border-radius: 20px 20px 0px 0px;
         width: 104%;
         max-height: 200px;
@@ -39,7 +41,7 @@ const { title , subtitle, route, thumbnail } = Astro.props;
         overflow:hidden;
     }
     .thumbnail {
-        height: 500px;
+        
     }
 
 </style>

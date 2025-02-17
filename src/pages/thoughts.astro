@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ThoughtsTab from '../components/ThoughtsTab.astro';
+// import allContent from './thoughts/publish.json';
 
 const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
 ---
@@ -18,17 +19,20 @@ const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: tr
     }
 </style>
 
-<BaseLayout pageTitle="blog">
+<BaseLayout pageTitle="thoughts">
+    
     <h2 class="nomargin bold">理由</h2>
     <h1 class="nomargin bold">bites and bonds</h1>
+    
     <p class="subtitle"><i>food recipes, shower thoughts, and everything in between.</i></p>
 
     <div class="container">
-        {allContent.map((post:any)=>(
+        {
+        allContent.map((post:any)=>(
+            // <ThoughtsTab url={post.url} title={post.title} subtitle={post.subtitle} pubDate={post.pubDate} tags={post.tags}/>
             <ThoughtsTab url={post.url} frontmatter={post.frontmatter}/>
         ))}
     </div>    
-
 
 </BaseLayout>
 
