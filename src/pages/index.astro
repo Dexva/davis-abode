@@ -7,22 +7,30 @@ const name = "davis!";
 ---
 
 <style>
-	body {
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;;
 	}
 	h1, p {
 		padding:0;
 		margin:0;
+		text-align:center;
 	}
 
 	.foreword {
-		margin-top: 2em;
 		font-weight:300;
-		font-size:300%;
+		font-size:280%;
 		padding-bottom: 0%;
 	}
 	.name {
+		margin-top: -30px;
 		font-weight:900;
 		font-size: 500%;
+		background-image: linear-gradient(red, #ffa3a3);
+    	color: transparent;
+    	background-clip: text;
 	}
 	.subtext {
 		padding-top: 2em;
@@ -37,20 +45,22 @@ const name = "davis!";
 </style>
 
 <BaseLayout pageTitle="">
-	<h1 class="foreword">{foreword}</h1>
-	<h1 class="name">{name}</h1>
+	<div class="container">
+		<h1 class="foreword noselect">{foreword}</h1>
+		<h1 class="name noselect">{name}</h1>
 
-	<p class="subtext">
-		I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
-		based in Kyoto.
+		<p class="subtext">
+			I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
+			based in Kyoto.
 
-		<br class="hide"/>
-		an avid <TextLink url="/thoughts" text="sinigang eater" isBold={true}/>,
-		and a <TextLink url="/photos" text="scenery catcher" isBold={true}/>.
-		
-		<br/><br/>
-		
-		ようこそ 👋
-	</p>
+			<br class="hide"/>
+			an avid <TextLink url="/thoughts" text="sinigang eater" isBold={true}/>,
+			and a <TextLink url="/photos" text="scenery catcher" isBold={true}/>.
+			
+			<br/><br/>
+			
+			ようこそ 👋
+		</p>
+	</div>
 </BaseLayout>
 
