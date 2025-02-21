@@ -37,6 +37,10 @@ nav {
 
 /* fonts */
 
+.hide {
+  display: none;
+}
+
 .justify {
   text-align: justify;
 }

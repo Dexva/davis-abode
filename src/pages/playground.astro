@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import '../styles/global.css';
+---
+<style>
+    @keyframes wave {
+        from {
+            width: 0px;
+            height: 0px;
+            border-radius: 1000px;
+            border: 3px solid var(--mainred);
+        }
+        to {
+            width: 200px;
+            height: 200px;
+            border: 1px solid var(--mainred);
+            opacity: 0;
+        }
+    }
+    .circle {
+       animation-name: wave;
+       animation-duration: 1s;
+    }
+    
+</style>
+
+<BaseLayout>
+    <div class="circle"></div>
+</BaseLayout>
+
+

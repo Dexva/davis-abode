@@ -34,10 +34,9 @@ let height = frontmatter.image.height * scale;
         border: 1px solid var(--mainred);
         color: var(--mainred);
         border-radius:1000px;
-        margin-top: 1em;
         margin-bottom:5%;
         padding:10px 20px;
-        display:inline-block;
+        display: inline-block;
         cursor: ne-resize
     }
     .melink:hover {
@@ -56,6 +55,7 @@ let height = frontmatter.image.height * scale;
         width: 90%;
         height: auto; 
         display: block; 
+        margin-bottom: 1em;
     }
 
     @media screen and (min-width: 800px) {
@@ -86,7 +86,10 @@ let height = frontmatter.image.height * scale;
         </div>
         <div class="right item">
             <Image src={frontmatter.image.url} alt={frontmatter.image.alt} width={width} height={height}/>
-            <p><a href={frontmatter.externalURL} target="_blank" class="melink noselect floating">{frontmatter.linkText}</a></p>
+            <p>
+                {frontmatter.linkText && <a href={frontmatter.externalURL} target="_blank" class="melink noselect floating">{frontmatter.linkText}</a>}
+            </p>
         </div>
     </div>
 </BaseLayout>
+
