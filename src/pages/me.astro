@@ -3,11 +3,13 @@ import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TextLink from '../components/TextLink.astro';
 import Tab from '../components/Tab.astro';
+import PaperTab from '../components/PaperTab.astro';
+import Prose from '../components/Prose.astro';
 
 const allContent = Object.values(import.meta.glob('./me/*.md', { eager: true }));
 const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
 const enggPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("engineering"));
-const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("paper"));
+const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:true}));
 ---
 
 <style>
@@ -15,6 +17,11 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
     .section {
         margin-top: 1em;
         margin-bottom: 2%;
+    }
+
+    .sectiondesc {
+        margin-top: 0;
+        margin-bottom: 1em;
     }
 
     @media screen and (min-width: 700px) {
@@ -42,30 +49,48 @@ const papersPosts = allContent.filter((post: any) => post.frontmatter.tags.inclu
         
         <br><br>
         
-        I graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={false} /> last 2024
+        I (very recently) graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={false} /> last 2024
         and am now studying at <TextLink text="Kyoto University 京都大学" url="https://www.kyoto-u.ac.jp/en" isBold={false} />
         as an <TextLink text="iUP scholar" url="https://www.iup.kyoto-u.ac.jp/" isBold={false}/>. This April 2025, I'm entering the University's
         工学部理工科学科 (Faculty of Engineering, Department of Chemical Science and Technology).        
+
+        <br><br>
+
+        For more information, feel free to check out my resume.
+        I've also compiled some cool things I've done on this page.
     </p>
 
-    <h2 class="bold section">code_</h2>
-    <div class="container">
-        {codePosts.map((post:any)=>(
-            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-        ))}
-    </div>
 
     <h2 class="bold section">engineering_</h2>
+    <p class="sectiondesc justify">
+        As someone in the engineering discipline, I have had my fair share of past encounters with practical projects.
+        While it's yet to be extensive, here are some of the projects I enjoyed working on in the past:
+    </p>
     <div class="container">
         {enggPosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
         ))}
     </div>
     
+
+    <h2 class="bold section">code_</h2>
+    <p class="sectiondesc justify">
+        One of my greatest joys lie in digital stuff.
+        Aside from chemistry, I was also particularly active in studying informatics and developing software.
+        Here are some I am particularly proud of:
+    </p>
+    <div class="container">
+        {codePosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+
     <h2 class="bold section">papers_</h2>
     <div class="container">
         {papersPosts.map((post:any)=>(
-            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+            <PaperTab paper={post.frontmatter}>
+                <Prose><post.default /></Prose>
+            </PaperTab>
         ))}
     </div>
 

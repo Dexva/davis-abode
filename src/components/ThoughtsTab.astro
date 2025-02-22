@@ -56,9 +56,9 @@ const { url , frontmatter } = Astro.props;
         </div>
         <div class="right">
             <p class="date"><i>{frontmatter.pubDate}</i></p>
-                {frontmatter.tags.map((tag: any) => (
-                    <p class="tag">{tag}</p>
-                ))}
+            {frontmatter.tags.map((tag: any) => (
+                <p class="tag">{tag}</p>
+            ))}
         </div>
     </div>
 </a>

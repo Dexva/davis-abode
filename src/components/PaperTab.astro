@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+const { paper } = Astro.props; 
+
+function dispAuthor(author:any,index:number,arrayLen:number) {
+    let isLast = (index == arrayLen-1);
+    if (!isLast) {
+        return author + " | ";
+    }
+    return author;
+}
+---
+
+<style>
+    .link {
+        cursor: ne-resize;
+        border: 1px solid rgba(0,0,0,0.2);
+    }
+    .link:hover, .link:active {
+        background-color: transparent;
+        border: 1px solid rgba(150, 33, 2, 0.4);
+        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.5);
+    }
+    .link:active {
+        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.8);
+    }
+    .outer {
+        padding: 1em;
+        display: flex;
+        text-wrap: wrap;;
+    }
+    .authors {
+        font-size: medium;
+    }
+    .left {
+        flex: 4;
+    }
+    .right {
+        flex: 1;
+    }
+    .title {
+        font-weight:bold;
+        color: var(--mainred);
+    }
+    .date {
+        margin-bottom:10px;
+        font-size: medium;
+    }
+    .desc {
+        margin-top: 0.5em;
+        transition: display 0.5s ease-out;
+    }
+
+    @media screen and (min-width: 700px) {
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        .right {
+            text-align: right;
+        }
+    }
+</style>
+
+<a href={paper.url} target="_blank" class="link floating">
+    <div class="outer">
+        <h3 class="title">{paper.title}</h3>
+        <div class="container">
+            <p class="authors left">
+                {paper.authors.map((author : any, index:number, array:any)=>(
+                    <span>{dispAuthor(author,index,array.length)}</span>
+                ))}
+            </p>
+            <p  class="date right">({paper.year})</p>
+        </div>
+        <p class="desc justify"><slot /></p>    
+    </div>
+    
+</a>
