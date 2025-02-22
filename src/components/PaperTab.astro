@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const { paper } = Astro.props; 
+const { paper , index } = Astro.props; 
 
 function dispAuthor(author:any,index:number,arrayLen:number) {
     let isLast = (index == arrayLen-1);
@@ -14,33 +14,28 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
 <style>
     .link {
         cursor: ne-resize;
-        border: 1px solid rgba(0,0,0,0.2);
+        text-decoration:underline;
+        color: var(--mainblack);
     }
-    .link:hover, .link:active {
-        background-color: transparent;
-        border: 1px solid rgba(150, 33, 2, 0.4);
-        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.5);
+    .link:hover{
+        background-color: var(--bgwhite);
+        text-decoration: underline;;
+        color: var(--mainred);
+        border: none;
     }
-    .link:active {
-        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.8);
-    }
+    
     .outer {
         padding: 1em;
         display: flex;
-        text-wrap: wrap;;
+        text-wrap: wrap;
     }
     .authors {
         font-size: medium;
     }
-    .left {
-        flex: 4;
-    }
-    .right {
-        flex: 1;
-    }
     .title {
         font-weight:bold;
-        color: var(--mainred);
+        color: var(--mainblack);
+        font-size: 120%;
     }
     .date {
         margin-bottom:10px;
@@ -48,8 +43,9 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
     }
     .desc {
         margin-top: 0.5em;
-        transition: display 0.5s ease-out;
     }
+    .left {flex: 4;}
+    .right {flex: 1;}
 
     @media screen and (min-width: 700px) {
         .container {
@@ -62,18 +58,22 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
     }
 </style>
 
-<a href={paper.url} target="_blank" class="link floating">
-    <div class="outer">
-        <h3 class="title">{paper.title}</h3>
-        <div class="container">
-            <p class="authors left">
-                {paper.authors.map((author : any, index:number, array:any)=>(
-                    <span>{dispAuthor(author,index,array.length)}</span>
-                ))}
-            </p>
-            <p  class="date right">({paper.year})</p>
-        </div>
-        <p class="desc justify"><slot /></p>    
-    </div>
+
+<div class="outer">
+    <h3 class="title">{index+1} / <a href={paper.url} target="_blank" class="link">
+        {paper.title}
+    </a></h3>
     
-</a>
+    <div class="container">
+        <p class="authors left">
+            {paper.authors.map((author : any, index:number, array:any)=>(
+                <span>{dispAuthor(author,index,array.length)}</span>
+            ))}
+        </p>
+        <p  class="date right">({paper.year})</p>
+    </div>
+    <p class="desc">
+        <slot/>
+    </p>   
+</div>
+
