@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ThoughtsTab from '../components/ThoughtsTab.astro';
-// import allContent from './thoughts/publish.json';
 
 const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
 ---
@@ -24,7 +23,9 @@ const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: tr
     <h2 class="nomargin bold">理由</h2>
     <h1 class="nomargin bold">bites and bonds</h1>
     
-    <p class="subtitle"><i>food recipes, shower thoughts, and everything in between.</i></p>
+    <p class="foreword justify">
+        <b>tl;dr: </b> <i>food recipes, shower thoughts, and everything in between...</i>
+    </p>
 
     <div class="container">
         {

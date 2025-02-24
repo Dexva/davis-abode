@@ -1,6 +1,6 @@
 ---
 title: 'On Classification of Noiseless and Noisy Pattern Orientations'
-authors: ['G. De Vera', 'B. Jacob', 'D. Magpantay']
+authors: ['G. De Vera', 'B. Jacob', 'D. Magpantay*']
 year: 2024
 url: https://drive.google.com/file/d/19nW7Ffei04XHAPGIc-WTt9GPxhzYoL1x/view?usp=sharing
 tags: ['math modeling', 'technical']
