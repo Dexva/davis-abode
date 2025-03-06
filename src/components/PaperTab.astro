@@ -41,7 +41,7 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
         margin-bottom:10px;
         font-size: medium;
     }
-    .desc {
+    .paperdesc {
         margin-top: 0.5em;
     }
     .left {flex: 4;}
@@ -72,8 +72,23 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
         </p>
         <p  class="date right">({paper.year})</p>
     </div>
-    <p class="desc">
-        <slot/>
-    </p>   
+    <div class="paperdesc">
+        <slot class="paperdesc"/>
+    </div>   
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const desc = document.querySelector(".paperdesc");
+      const links = desc?.querySelectorAll("a")
+      if (links) {
+          links.forEach((link) => {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        });
+      }
+      
+    });
+</script>
 

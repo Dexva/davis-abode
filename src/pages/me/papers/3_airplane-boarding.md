@@ -6,4 +6,4 @@ url: https://drive.google.com/file/d/17I-gblc61-sMP80HJAQNh2h1IlB47gko/view?usp=
 tags: ['math modeling', 'technical']
 ---
 
-Another math modeling paper, this time for IMMC 2022 (+ awarded Rank 9). In this paper, we presented a computational, Monte Carlo simulation model to estimate the boarding time of a specified boarding method with a randomized set of passenger parameters. Meanwhile, we also presented a closed-form formula to estimate the optimal disembarking time for any aircraft.
+Another math modeling paper, this time for [IMMC 2022](https://www.immchallenge.org/) (+ awarded Rank 9). In this paper, we presented a computational, Monte Carlo simulation model to estimate the boarding time of a specified boarding method with a randomized set of passenger parameters. Meanwhile, we also presented a closed-form formula to estimate the optimal disembarking time for any aircraft.
