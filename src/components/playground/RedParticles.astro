@@ -1,0 +1,76 @@
+---
+// RedParticles.astro
+// A component that creates a background of floating red particles for a landing page
+
+interface Props {
+  particleCount?: number;  // Number of particles to display
+  particleSize?: number;   // Size of particles in pixels (default: 4px)
+  animationDuration?: number; // Animation duration in seconds (default: 8s)
+}
+
+const {
+  particleCount = 60,
+  particleSize = 40,
+  animationDuration = 10,
+} = Astro.props;
+
+// Generate random positions and delays for particles
+const particles = Array.from({ length: particleCount }, () => ({
+  left: Math.random() * 100,
+  top: 100 + Math.random() * 100,
+  delay: Math.random() * animationDuration,
+  size: (Math.random() * 0.5 + 0.75) * particleSize // Variation in particle size
+}));
+---
+
+<div class="particles-container">
+  {particles.map((particle) => (
+    <div 
+      class="particle" 
+      style={`
+        left: ${particle.left}%; 
+        top: ${particle.top}%; 
+        width: ${particle.size}px; 
+        height: ${particle.size}px; 
+        animation-delay: ${particle.delay}s;
+      `}
+    ></div>
+  ))}
+</div>
+
+<style define:vars={{ 
+}}>
+  .particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation-name: float;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    user-select: none;
+  }
+
+  @keyframes float {
+    
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+
+  }
+</style>

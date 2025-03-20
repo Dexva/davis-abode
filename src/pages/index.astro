@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TextLink from '../components/TextLink.astro';
+import RedParticles from '../components/playground/RedParticles.astro';
 
 const foreword = "hi, i'm";
 const name = "davis!";
@@ -11,7 +12,7 @@ const name = "davis!";
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 100vh;;
+		margin-top: 20vh;
 	}
 	h1, p {
 		padding:0;
@@ -45,6 +46,10 @@ const name = "davis!";
 </style>
 
 <BaseLayout pageTitle="">
+	<RedParticles 
+		particleCount={40} 
+  	/>
+
 	<div class="container">
 		<h1 class="foreword noselect">{foreword}</h1>
 		<h1 class="name noselect">{name}</h1>

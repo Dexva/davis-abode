@@ -1,31 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import '../styles/global.css';
+
+import RedParticles from "../components/playground/RedParticles.astro";
 ---
 <style>
-    @keyframes wave {
-        from {
-            width: 0px;
-            height: 0px;
-            border-radius: 1000px;
-            border: 3px solid var(--mainred);
-        }
-        to {
-            width: 200px;
-            height: 200px;
-            border: 1px solid var(--mainred);
-            opacity: 0;
-        }
-    }
-    .circle {
-       animation-name: wave;
-       animation-duration: 1s;
-    }
-    
+   
 </style>
 
 <BaseLayout>
-    <div class="circle"></div>
+    <RedParticles 
+      particleCount={60} 
+    />
+    
+    <h1>Your Content Here</h1>
+    <p>This is your landing page content that will appear above the particle animation.</p>
 </BaseLayout>
-
-

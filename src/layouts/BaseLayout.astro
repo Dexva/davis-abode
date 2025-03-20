@@ -12,11 +12,24 @@ const { pageTitle } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>davism / {pageTitle}</title>
+		<style>
+			.main {
+				margin-left:0.5em;
+				margin-right:0.5em;
+			}
+			@media screen and (min-width: 636px) {
+				.main {
+					margin-left: 2em;
+					margin-right: 2em;
+				}
+			}
+		</style>
 	</head>
-
 	<body>
-		<Header />
-        <slot />
+		<div class="main">
+			<Header />
+			<slot />
+		</div>
 		<script>
 			import "../scripts/menu.js";
 		</script>
