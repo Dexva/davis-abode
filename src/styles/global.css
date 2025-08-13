@@ -1,28 +1,47 @@
-:root {
-    --bgwhite: #fffffe;
-    --mainred: #db1d1d;
-    --darkred: #b81818; /*rgba(150, 33, 2, 1)*/
-    --mainblack: #140808;
-    --maingray: #8b8b8b;
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap');
+@import "tailwindcss";
+
+/*================== UTILITY ==================*/
+
+@theme {
+  --color-flamingo: #eb5243;
+  --color-sunset: #fac19c;
+  --color-peach: #faa59c;  
 }
 
-/* Utility */
+:root {
+  font-size: 16px;
+  --bgwhite: #fffffe;
+  --mainred: #db1d1d;
+  --darkred: #b81818; /*rgba(150, 33, 2, 1)*/
+  --mainblack: #140808;
+  --maingray: #8b8b8b;
+  --color-main: #eb5243;
+  --color-light1: #fac19c;
+  --color-light2: #faa59c;
+  --color-bg1: #fffbf4;
+  --color-bg2: #fff6f0;
+  --color-shadow: #696969;
+}
 
 * {
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease-in-out;
 }
 
 .hide {
     display: none;
 }
 
+/*================== SECTIONS (DIVS, ETC.) ==================*/
+
 body {
-    background-color: var(--bgwhite);
-    font-family: "Open Sans",sans-serif;
-    padding:5%;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  background: linear-gradient(var(--color-bg1), var(--color-bg2));
+    /* background: radial-gradient(circle at top left, var(--color-flamingo),var(--color-sunset),var(--color-peach)); */
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 div, nav {
@@ -34,17 +53,32 @@ nav {
   margin-top: 0.1em;
 }
 
+/*================== TYPOGRAPHY ==================*/
 
-/* fonts */
-
-.hide {
-  display: none;
+h1, h2, h3, p {
+  padding: 0;
+  margin: 0;
+}
+h1 { /* Exclusively for big titles*/
+  @apply text-8xl
+}
+h2 { /* Header */
+  @apply text-3xl
+}
+h3 { /* Sub-header */
+  @apply text-2xl
+}
+p {
+  @apply text-base
 }
 
-.justify {
-  text-align: justify;
+@media screen and (max-width: 636px) {
+  h1 {@apply text-7xl}
+  h2 {@apply text-2xl}
+  h3 {@apply text-xl}
 }
 
+/*
 .nomargin {
   margin:0;
 }
@@ -80,63 +114,29 @@ p, h3 {
 }
 
 h1 {font-size:220%} /*original: 200%*/
-h2 {font-size: 170%} /*origina: 150%*/
-h3 {font-size: 150%} /*original: ~120%*/
-p {font-size: 110%} /*original:100%*/
+/* h2 {font-size: 170%} origina: 150% */
+/* h3 {font-size: 150%} original: ~120% */
+/* p {font-size: 110%} original:100% 
+*/
 
+/* 
 a {
     text-decoration:none;
-    color: var(--darkred);
+    color: var(--color-main);
     padding:1px;
 }
 
 a:hover, a:active {
-    color: var(--bgwhite);
-    background-color: var(--mainred);
-    padding:1px;
+    color: white;
+    background-color: var(--color-main);
     cursor:help;
-}
+} */
 
 /* nav styles */
-
-.hamburger {
-    cursor: pointer;
-    display:flex;
-    flex-direction:column;
-    margin-left:auto;
-}
-
-.hamburger .line {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin-bottom: 5px;
-    background-color: var(--mainred);
-}
 
 .nav-links {
     display:none;
     /* margin-bottom: 1em; */
-}
-
-.nav-links p {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    margin-left: auto;
-    text-align: right;
-    color:var(--darkred);
-    font-size:120%;
-}
-
-.nav-links a {
-  text-align: center;
-  text-decoration: none;
-  color: var(--darkred);
-}
-
-.nav-links a:hover, a:active {
-  color:var(--bgwhite);
 }
 
 .expanded {
@@ -152,7 +152,7 @@ a:hover, a:active {
     color:var(--maingray);
   }
 
-  .nav-links p {
+  /* .nav-links p {
     color: var(--maingray);
   }
 
@@ -164,16 +164,7 @@ a:hover, a:active {
     background-color: transparent;
     color:var(--mainred);
     text-decoration: underline;
-  }
-
-  .nav-links br {
-    display: none;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
+  } */
 }
 
 /* other classes */

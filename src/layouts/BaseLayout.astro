@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import '../styles/tailwind.css';
 import Header from '../components/Header.astro';
 const { pageTitle } = Astro.props;
 ---
@@ -14,20 +13,22 @@ const { pageTitle } = Astro.props;
 		<title>davism / {pageTitle}</title>
 		<style>
 			.main {
-				margin-left:0.5em;
-				margin-right:0.5em;
+				margin: 0 4rem;
+				min-height: 90vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 			}
-			@media screen and (min-width: 636px) {
+			@media screen and (max-width: 636px) {
 				.main {
-					margin-left: 2em;
-					margin-right: 2em;
+					margin: 0 2rem;
 				}
 			}
 		</style>
 	</head>
 	<body>
+		<Header />
 		<div class="main">
-			<Header />
 			<slot />
 		</div>
 		<script>

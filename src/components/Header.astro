@@ -1,16 +1,92 @@
 ---
-import Navigation from './Navigation.astro';
+import Hamburger from './Hamburger.astro';
+
+const { pathname } = Astro.url;
+const isHomePage = pathname === '/';
+
+const navLinks = [
+  { href: "/me/", label: "about" },
+  { href: "/thoughts/", label: "blog" },
+  { href: "/photos/", label: "photos" },
+];
+
+const logo_class = isHomePage ?
+                   "text-white font-bold tracking-wider hover:[text-shadow:0_3px_8px_white]" :
+                   "text-flamingo font-bold tracking-wider hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+
+const navlinks_class = isHomePage ?
+                   "text-white font-bold tracking-wider hover:[text-shadow:0_3px_8px_var(--color-shadow)]" :
+                   "text-flamingo font-bold tracking-wider hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+
 ---
 
 <style>
     header {
         padding: 0;
-        margin: 0;
+        margin: 2rem 2rem 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav {
+        position: relative;
+    }
+    .logo:hover {
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .nav-links {
+        position: absolute;
+        top: 180%; /* Position it just below the parent <nav> element */
+        right: 0;
+        text-align: right;
+        padding: 0rem 0rem;
+        
+        /* Hide the menu by default */
+        transform: translateY(-10px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+    a {
+        cursor: pointer;
+    }
+    @media screen and (min-width: 636px) {
+        header {
+            margin: 2rem 4rem 0;
+        }
+
+        .nav-links {
+            position:static;
+        }
+
+        .nav-links br {
+            display: none;
+        }
+        
+        .nav-links a {
+            padding-left: 2rem;
+        }
+
     }
 </style>
 
 <header>
-    <nav>
-        <Navigation></Navigation>
+    <a class="logo" href="/">
+        <h2 class:list={[logo_class]}>/d.</h2>
+    </a>
+    <nav>            
+        <Hamburger />
+
+        <div class="nav-links">
+            <p>
+            {
+                navLinks.map((link)=>{
+                    return (
+                        <a href={link.href} class:list={[navlinks_class]}>{link.label}</a> <br>
+                    )
+                })
+            }
+            </p>
+        </div>
     </nav>    
 </header>

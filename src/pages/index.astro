@@ -3,41 +3,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TextLink from '../components/TextLink.astro';
 import RedParticles from '../components/playground/RedParticles.astro';
 
-const foreword = "hi, i'm";
-const name = "davis!";
+const name = "Davis!";
 ---
 
 <style>
+	body { 
+    	background: radial-gradient(circle at top left,
+									var(--color-main),
+									var(--color-light1),
+									var(--color-light2));
+		
+	}
 	.container {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 20vh;
-	}
-	h1, p {
-		padding:0;
-		margin:0;
-		text-align:center;
-	}
-
-	.foreword {
-		font-weight:300;
-		font-size:280%;
-		padding-bottom: 0%;
-	}
-	.name {
-		margin-top: -30px;
-		font-weight:900;
-		font-size: 500%;
-		background-image: linear-gradient(red, #ffa3a3);
-    	color: transparent;
-    	background-clip: text;
+		height: 100%;
 	}
 	.subtext {
 		padding-top: 2em;
 		font-size:110%;
 	}
-
 	@media screen and (min-width: 636px) {
 		br {
 			display: unset;
@@ -46,14 +32,15 @@ const name = "davis!";
 </style>
 
 <BaseLayout pageTitle="">
-	<RedParticles 
+	<!-- <RedParticles 
 		particleCount={40} 
-  	/>
+  	/> -->
 
 	<div class="container">
-		<h1 class="foreword noselect">{foreword}</h1>
-		<h1 class="name noselect">{name}</h1>
-
+		<h2 class="text-white font-bold [text-shadow:0_3px_10px_var(--color-shadow)] noselect">Hi, I am</h2>
+		<h1 class="text-white font-bold italic [text-shadow:0_3px_10px_var(--color-shadow)] noselect">{name}</h1>
+		<h4 class="text-lg text-white font-bold [text-shadow:0_3px_6px_var(--color-shadow)]">science . ideas. photos</h4>
+<!-- 
 		<p class="subtext">
 			I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
 			based in Kyoto.
@@ -65,7 +52,7 @@ const name = "davis!";
 			<br/><br/>
 			
 			ようこそ 👋
-		</p>
+		</p> -->
 	</div>
 </BaseLayout>
 
