@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import ThoughtsTab from '../components/ThoughtsTab.astro';
 
 const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
@@ -18,7 +18,7 @@ const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: tr
     }
 </style>
 
-<BaseLayout pageTitle="thoughts">
+<PageLayout siteTabText="thoughts" pageTitle="thoughts." pageSubtitle="ブログ">
     
     <h2 class="nomargin bold">理由</h2>
     <h1 class="nomargin bold">bites and bonds</h1>
@@ -35,5 +35,5 @@ const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: tr
         ))}
     </div>    
 
-</BaseLayout>
+</PageLayout>
 

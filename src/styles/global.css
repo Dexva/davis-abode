@@ -7,6 +7,8 @@
   --color-flamingo: #eb5243;
   --color-sunset: #fac19c;
   --color-peach: #faa59c;  
+  --color-bg1: #fffbf4;
+  --color-bg2: #fff6f0;
 }
 
 :root {
@@ -33,11 +35,14 @@
     display: none;
 }
 
+.noselect {
+  user-select:none;
+}
+
 /*================== SECTIONS (DIVS, ETC.) ==================*/
 
 body {
   background: linear-gradient(var(--color-bg1), var(--color-bg2));
-    /* background: radial-gradient(circle at top left, var(--color-flamingo),var(--color-sunset),var(--color-peach)); */
   font-family: "Montserrat";
   display: flex;
   flex-direction: column;
@@ -59,118 +64,27 @@ h1, h2, h3, p {
   padding: 0;
   margin: 0;
 }
-h1 { /* Exclusively for big titles*/
+
+/* FOr reference of sizing */
+/* h1 { 
   @apply text-8xl
 }
-h2 { /* Header */
+h2 {
   @apply text-3xl
 }
-h3 { /* Sub-header */
+h3 {
   @apply text-2xl
 }
 p {
   @apply text-base
 }
 
-@media screen and (max-width: 636px) {
+@media screen and (max-width:640px) {
   h1 {@apply text-7xl}
   h2 {@apply text-2xl}
   h3 {@apply text-xl}
-}
-
-/*
-.nomargin {
-  margin:0;
-}
-
-.bold {
-  font-weight:bold;
-}
-
-h2.title {
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
-}
-
-h1.title {
-  font-weight: bold;
-  margin-top: 0;
-}
-
-p.foreword {
-  margin-top:5%;
-}
-
-
-h1, h2 {
-    color: var(--mainred);
-}
-
-p, h3 {
-    color: var(--mainblack);
-    line-height:1.30;
-    font-weight:normal;
-}
-
-h1 {font-size:220%} /*original: 200%*/
-/* h2 {font-size: 170%} origina: 150% */
-/* h3 {font-size: 150%} original: ~120% */
-/* p {font-size: 110%} original:100% 
-*/
-
-/* 
-a {
-    text-decoration:none;
-    color: var(--color-main);
-    padding:1px;
-}
-
-a:hover, a:active {
-    color: white;
-    background-color: var(--color-main);
-    cursor:help;
 } */
 
-/* nav styles */
-
-.nav-links {
-    display:none;
-    /* margin-bottom: 1em; */
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    display: flex;
-    position: static;
-    width: auto;
-    background: none;
-    color:var(--maingray);
-  }
-
-  /* .nav-links p {
-    color: var(--maingray);
-  }
-
-  .nav-links a {
-    display: inline-block;
-    color: var(--maingray);
-  }
-  .nav-links a:hover {
-    background-color: transparent;
-    color:var(--mainred);
-    text-decoration: underline;
-  } */
-}
-
-/* other classes */
-.noselect {
-  user-select:none;
-}
 
 
 .floating {

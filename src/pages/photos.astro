@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Images from './photos/list.json';
 ---
 
@@ -59,7 +59,7 @@ import Images from './photos/list.json';
     }
 </style>
 
-<BaseLayout pageTitle="photos">
+<PageLayout siteTabText="photos" pageTitle="photos." pageSubtitle="写真">
     
     <h2 class="title">写真</h2>
     <h1 class="title">scenery-catching</h1>
@@ -81,5 +81,5 @@ import Images from './photos/list.json';
             </a>
         ))}
     </div>
-</BaseLayout>
+</PageLayout>
 

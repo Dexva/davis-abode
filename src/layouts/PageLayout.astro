@@ -1,0 +1,17 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import PageSubTitle from "../components/typography/PageSubTitle.astro";
+import PageTitle from "../components/typography/PageTitle.astro";
+
+const { siteTabText , pageTitle , pageSubtitle } = Astro.props; 
+---
+
+<BaseLayout siteTabText={siteTabText}>
+    <div class="mt-12 mb-8">
+        <PageSubTitle>{pageSubtitle}</PageSubTitle>
+        <PageTitle >{pageTitle}</PageTitle>
+        <span class="h-0.5 bg-flamingo"></span>
+    </div>
+
+    <slot />
+</BaseLayout>

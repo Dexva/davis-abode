@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import TextLink from '../components/TextLink.astro';
 import Tab from '../components/Tab.astro';
 import PaperTab from '../components/PaperTab.astro';
@@ -43,9 +43,7 @@ const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:tr
     }
 </style>
 
-<BaseLayout pageTitle="me">
-    <h2 class="title">知り合う</h2>
-    <h1 class="title">meet, me!</h1>
+<PageLayout siteTabText="me" pageTitle="about me." pageSubtitle="知り合う">
     
     <p class="foreword justify">
         My name is Davis Nicholo A. Magpantay...
@@ -101,5 +99,5 @@ const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:tr
         ))}
     </div>
 
-</BaseLayout>
+</PageLayout>
 
