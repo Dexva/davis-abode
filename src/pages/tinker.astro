@@ -1,8 +1,51 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro"
+/*======== LAYOUT ========*/
+import PageLayout from '../layouts/PageLayout.astro';
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
+import Link from '../components/typography/Link.astro';
+import SectionHeading from '../components/typography/SectionHeading.astro';
+/*======== COMPONENTS ========*/
+import Tab from '../components/containers/Tab.astro';
+import PaperTab from '../components/containers/PaperTab.astro';
+/*======== ASSETS ========*/
+const allContent = Object.values(import.meta.glob('./tinker/*.md', { eager: true }));
+const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
+const enggPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("engineering"));
+const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eager:true}));
 ---
 
 <PageLayout siteTabText="tinker" pageTitle="tinker." pageSubtitle="プロジェクト">
 
+    <SectionHeading>engineering_（工業）</SectionHeading>
+    <Paragraph> Stuff I made.</Paragraph>
+    <div class="container flex flex-wrap justify-evenly">
+        {enggPosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+    
+
+    <SectionHeading>code_</SectionHeading>
+    <Paragraph>
+        One of my greatest joys lie in digital stuff.
+    </Paragraph>
+    <div class="container flex flex-wrap justify-evenly">
+        {codePosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+
+    <SectionHeading>papers_</SectionHeading>
+    <Paragraph>
+        Some papers for math modeling contests or course-related research.
+    </Paragraph>
+    <div class="flex flex-col">
+        {papersPosts.map((post:any, index:number)=>(
+            <PaperTab paper={post.frontmatter} index={index}>
+                <post.default />
+            </PaperTab>
+        ))}
+    </div>
 
 </PageLayout>

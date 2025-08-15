@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MeShowcaseLayout.astro
+layout: ../../layouts/TinkerShowcaseLayout.astro
 title: 'FlexiClaw'
 pubDate: 2025-02-12
 subtitle: 'my first industrial design'

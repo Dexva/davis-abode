@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MeShowcaseLayout.astro
+layout: ../../layouts/TinkerShowcaseLayout.astro
 title: 'Space Jam'
 pubDate: 2025-02-12
 subtitle: 'signs of my coding baby steps'

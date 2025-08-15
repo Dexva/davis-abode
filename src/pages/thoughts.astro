@@ -1,36 +1,23 @@
 ---
-import '../styles/global.css';
+/*======== LAYOUT ========*/
 import PageLayout from '../layouts/PageLayout.astro';
-import ThoughtsTab from '../components/ThoughtsTab.astro';
-
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
+/*======== COMPONENTS ========*/
+import ThoughtsTab from '../components/containers/ThoughtsTab.astro';
+/*======== ASSETS ========*/
 const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
 ---
 
-<style>
-    .container {
-        margin-top:5%;
-    }
-    .container a {
-        cursor: pointer;
-    }
-    .subtitle {
-        margin-bottom: 2em;
-    }
-</style>
-
 <PageLayout siteTabText="thoughts" pageTitle="thoughts." pageSubtitle="ブログ">
     
-    <h2 class="nomargin bold">理由</h2>
-    <h1 class="nomargin bold">bites and bonds</h1>
-    
-    <p class="foreword justify">
+    <Paragraph>
         <b>tl;dr: </b> <i>food recipes, shower thoughts, and everything in between...</i>
-    </p>
+    </Paragraph>
 
-    <div class="container">
+    <div class="flex-col">
         {
         allContent.map((post:any)=>(
-            // <ThoughtsTab url={post.url} title={post.title} subtitle={post.subtitle} pubDate={post.pubDate} tags={post.tags}/>
             <ThoughtsTab url={post.url} frontmatter={post.frontmatter}/>
         ))}
     </div>    

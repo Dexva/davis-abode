@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap');
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 /*================== UTILITY ==================*/
 
@@ -24,6 +25,17 @@
   --color-bg1: #fffbf4;
   --color-bg2: #fff6f0;
   --color-shadow: #696969;
+
+
+  /* Spacing vars keyword s */
+  --space-tiny: 0.5rem;
+  --space-tiny-mobile: 0.25rem;
+  --space-small: 0.75rem;
+  --space-small-mobile: 0.5rem;
+  --space-medium: 1.5rem;
+  --space-medium-mobile: 1rem;
+  --space-big: 2.5rem;
+  --space-big-mobile: 2rem;
 }
 
 * {
@@ -51,7 +63,7 @@ body {
 
 div, nav {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 nav {

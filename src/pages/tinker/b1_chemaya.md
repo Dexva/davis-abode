@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MeShowcaseLayout.astro
+layout: ../../layouts/TinkerShowcaseLayout.astro
 title: 'Chemaya'
 pubDate: 2025-02-24
 subtitle: 'my HS graduation research'

@@ -1,29 +1,23 @@
 ---
-import '../styles/global.css';
-import PageLayout from '../layouts/PageLayout.astro';
 import Images from './photos/list.json';
+/*======== LAYOUT ========*/
+import PageLayout from '../layouts/PageLayout.astro';
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
 ---
 
 <style>
-    .photocontainer {
-        margin-top: 5%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 10px; 
-        width: 100%;  
-    }
     .imglink {
         border: 1px solid rgba(0,0,0,0.2);
         display: inline-block;
-        width:70%;
+        width:90%;
         cursor: ne-resize;
         overflow:hidden;
         padding: 0px;
         opacity: 1;
         box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2); 
         padding: 10px;
+        margin-bottom: 2rem;
     }
     .imglink:hover {
         opacity: 1;
@@ -61,19 +55,12 @@ import Images from './photos/list.json';
 
 <PageLayout siteTabText="photos" pageTitle="photos." pageSubtitle="写真">
     
-    <h2 class="title">写真</h2>
-    <h1 class="title">scenery-catching</h1>
-    
-    <p class="foreword justify">
+    <Paragraph>
         I have been taking photos with my trusty Huawei P30 Pro since I first got it back in Grade 8.
-        Here are some of my favorites. 
-        
-        <br><br>
+        Here are some of my favorites. <i>Click the photocards to view the original post at my instagram.</i>
+    </Paragraph>
 
-        <i>Click the photocards to view the original post at my instagram.</i>
-    </p>
-
-    <div class="photocontainer">
+    <div class="flex flex-row flex-wrap justify-evenly">
         {Images.map((image)=>(
             <a class="imglink floating" href={image.externalURL} target="_blank">
                 <img class="img" src={image.imgURL} alt={image.title} />

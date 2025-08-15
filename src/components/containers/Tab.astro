@@ -1,0 +1,40 @@
+---
+import '../../styles/global.css';
+const { title , subtitle, route, thumbnail } = Astro.props;
+---
+
+<style>
+    .tab {
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2); 
+        opacity:0.8;
+    }
+    .tab:hover {
+        opacity: 1;
+    }
+    .tab:active {
+        box-shadow: 0 10px 10px var(--color-flamingo);
+    }
+    .tab a {
+        cursor: pointer;
+    }
+    .tab img {
+        position: relative;
+        border-radius: 20px 20px 0px 0px;
+        object-fit:cover;
+        object-position:top;
+        overflow:hidden;
+    }
+    @media screen and (min-width: 700px) {
+    }
+
+</style>
+
+<a class="active:text-flamingo w-[100%] sm:w-120"href={route}>
+    <div class="flex-col tab mb-8 bg-none rounded-[20px] floating">
+            <img class="w-full h-[200px]" src={thumbnail}>
+            <div class="m-4 flex-col">
+                <h3 class="m-1 text-xl font-bold noselect">{title}</h3>
+                <p class=" m-1 font-medium noselect">{subtitle}</p>
+            </div>
+    </div>
+</a>

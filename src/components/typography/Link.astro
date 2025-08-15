@@ -1,0 +1,9 @@
+---
+import '../../styles/global.css';
+const { href } = Astro.props;
+---
+
+
+<a class="text-flamingo hover:text-bg2 hover:bg-flamingo cursor-help" href={href} target="_blank">
+    <slot />
+</a>

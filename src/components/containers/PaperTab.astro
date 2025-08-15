@@ -1,6 +1,8 @@
 ---
-import '../styles/global.css';
+import '../../styles/global.css';
 const { paper , index } = Astro.props; 
+
+import Paragraph from '../typography/Paragraph.astro';
 
 function dispAuthor(author:any,index:number,arrayLen:number) {
     let isLast = (index == arrayLen-1);
@@ -18,9 +20,8 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
         color: var(--mainblack);
     }
     .link:hover{
-        background-color: var(--bgwhite);
         text-decoration: underline;;
-        color: var(--mainred);
+        color: var(--color-flamingo);
         border: none;
     }
     
@@ -41,9 +42,6 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
         margin-bottom:10px;
         font-size: medium;
     }
-    .paperdesc {
-        margin-top: 0.5em;
-    }
     .left {flex: 4;}
     .right {flex: 1;}
 
@@ -59,10 +57,11 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
 </style>
 
 
-<div class="outer">
-    <h3 class="title">{index+1} / <a href={paper.url} target="_blank" class="link">
-        {paper.title}
-    </a></h3>
+<div class="my-4 p-4 flex flex-wrap flex-col border-[0.5px]">
+    <h3 class="title"> 
+        {index+1} /
+        <a href={paper.url} target="_blank" class="link"> {paper.title} </a>
+    </h3>
     
     <div class="container">
         <p class="authors left">
@@ -72,8 +71,9 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
         </p>
         <p  class="date right">({paper.year})</p>
     </div>
-    <div class="paperdesc">
-        <slot class="paperdesc"/>
+
+    <div class="mt-2">
+        <Paragraph><slot /></Paragraph>
     </div>   
 </div>
 

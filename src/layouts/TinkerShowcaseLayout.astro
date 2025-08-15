@@ -19,23 +19,10 @@ let height = frontmatter.image.height * scale;
     .return:hover {
         color: var(--bgwhite);
     }
-
-    .item {
-        margin-top: 5%;
-    }
-
-    .right {
-        justify-content: center;
-        align-items: center; 
-        text-align: center;
-    } 
-
     .melink {
-        border: 1px solid var(--mainred);
-        color: var(--mainred);
-        border-radius:1000px;
+        border: 1px solid var(--flamingo);
+        color: var(--flamingo);
         margin-bottom:5%;
-        padding:10px 20px;
         display: inline-block;
         cursor: ne-resize
     }
@@ -45,21 +32,8 @@ let height = frontmatter.image.height * scale;
         border: 0px;
     }
 
-
-    Image {
-        float:right;
-    }
-
-    .right img {
-        max-width: 500px;
-        width: 90%;
-        height: auto; 
-        display: block; 
-        margin-bottom: 1em;
-    }
-
     @media screen and (min-width: 800px) {
-        .container {
+        /* .container {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -71,24 +45,28 @@ let height = frontmatter.image.height * scale;
         }
         .right {
             margin-left:auto;
-        }
+        } */
     }
 
 </style>
 
 <BaseLayout pageTitle = {frontmatter.title}>
-    <p class="nomargin noselect"><a class="return" href="/me/">{returnMessage}</a></p>
-    <div class="container">
-        <div class="item">
+    <p class="nomargin noselect"><a class="return" href="/tinker/">{returnMessage}</a></p>
+    <div class="flex flex-col md:flex-row justify-around">
+        <div class="flex md:max-w-[50%] flex-col">
             <Prose>
                 <slot/>
             </Prose>
         </div>
-        <div class="right item">
+        <div class="flex flex-col items-center">
             <Image src={frontmatter.image.url} alt={frontmatter.image.alt} width={width} height={height}/>
-            <p>
-                {frontmatter.linkText && <a href={frontmatter.externalURL} target="_blank" class="melink noselect floating">{frontmatter.linkText}</a>}
-            </p>
+            <div class="mt-4 p-2 rounded-xl noselect floating border-1 text-flamingo hover:text-bg1 hover:bg-flamingo">
+                <p>{
+                frontmatter.linkText != ""
+                && 
+                <a href={frontmatter.externalURL} target="_blank">{frontmatter.linkText}</a>
+                }</p>
+            </div>
         </div>
     </div>
 </BaseLayout>

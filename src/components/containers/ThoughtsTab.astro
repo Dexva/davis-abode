@@ -1,6 +1,5 @@
 ---
-import '../styles/global.css';
-// const { url, title, subtitle, pubDate, tags } = Astro.props; 
+import '../../styles/global.css';
 const { url , frontmatter } = Astro.props;
 ---
 
@@ -17,11 +16,6 @@ const { url , frontmatter } = Astro.props;
     .link:active {
         box-shadow: 0 5px 5px rgba(150, 33, 2, 0.8);
     }
-    .container {
-        padding: 1em;
-        display: flex;
-        flex-direction: row;
-    }
     .left {
         flex: 1;
     }
@@ -30,16 +24,10 @@ const { url , frontmatter } = Astro.props;
         flex: 1;
         text-align: right;
     }
-    .title {
-        font-weight:bold;
-        color: var(--mainred);
-    }
-    .date {
-        margin-bottom:10px;
-    }
     .tag {
         margin-left: 10px;
-        display: inline-block; /* Ensure each tag is an inline element */
+        margin-bottom: 10px;
+        display: inline-block;
         background-color: #e2e8f0; /* Light gray background */
         padding: 5px 10px; /* Padding inside the tag */
         border-radius: 10px; /* Rounded corners */
@@ -49,13 +37,13 @@ const { url , frontmatter } = Astro.props;
 </style>
 
 <a href={url} class="link floating">
-    <div class="container">
-        <div class="left">
-            <h3 class="title">{frontmatter.title}</h3>
+    <div class="p-4 flex-row">
+        <div class="left flex-col">
+            <h3 class="text-xl text-flamingo font-bold">{frontmatter.title}</h3>
             <p class="subtitle">{frontmatter.subtitle}</p>
         </div>
         <div class="right">
-            <p class="date"><i>{frontmatter.pubDate}</i></p>
+            <p class="!mb-2"><i>{frontmatter.pubDate}</i></p>
             {frontmatter.tags.map((tag: any) => (
                 <p class="tag">{tag}</p>
             ))}

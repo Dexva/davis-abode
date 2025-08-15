@@ -11,24 +11,10 @@ const { siteTabText } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>davism / {siteTabText}</title>
-		<style>
-			.main {
-				margin: 0 4rem;
-				min-height: 90vh;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-			}
-			@media screen and (max-width:640px) {
-				.main {
-					margin: 0 2rem;
-				}
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
-		<div class="main">
+		<div class="flex-col justify-start mx-8 my-0 sm:mx-20">
 			<slot />
 		</div>
 		<script>

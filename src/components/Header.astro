@@ -12,50 +12,40 @@ const navLinks = [
 ];
 
 const logo_class = isHomePage ?
-                   "text-white font-bold tracking-wider hover:[text-shadow:0_3px_8px_white]" :
-                   "text-flamingo font-bold tracking-wider hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+                   "text-white hover:[text-shadow:0_3px_8px_white]" :
+                   "text-flamingo hover:[text-shadow:0_3px_8px_var(--color-light2)]";
 
-const logo_class_base = "text-2xl sm:text-3xl";
+const logo_class_base = "text-2xl sm:text-3xl font-bold tracking-wider";
 
 const navlinks_class = isHomePage ?
-                   "text-white sm:bg-none bg-flamingo text-flamingo hover:[text-shadow:0_3px_8px_#fff]" :
-                   "text-flamingo sm:bg-none bg-bg1 hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+                   "text-white bg-flamingo text-flamingo hover:[text-shadow:0_3px_8px_#fff]" :
+                   "text-flamingo bg-bg1 hover:[text-shadow:0_3px_8px_var(--color-light2)]";
 
-const navlinks_class_base = "!text-lg font-bold tracking-wider hover:underline"
+const navlinks_class_base = "!text-lg font-bold tracking-wider p-2 sm:p-0 sm:bg-transparent"
 
 ---
 
 <style>
     header {
-        padding: 0;
-        margin: 2rem 2rem 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        position: sticky;
+        top: 2rem;
     }
     nav {
         position: relative;
     }
     .logo:hover {
-        background-color: transparent;
         cursor: pointer;
     }
     .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        opacity: 0;
         position: absolute;
         top: 180%; /* Position it just below the parent <nav> element */
         right: 0;
-        text-align: right;
-        opacity: 0;
         pointer-events: none;
         transform: translateX(15px);
         transition: opacity 0.2s ease, transform 0.2s ease;
     }
     .nav-links-a {
-        padding: 0.5rem 0.8rem;
         box-shadow: 0 2px 6px black;
         border-radius: 10px;
     }
@@ -64,52 +54,36 @@ const navlinks_class_base = "!text-lg font-bold tracking-wider hover:underline"
     }
 
     .expanded {
-        gap: 0.1rem;
         opacity: 1;
         transform: translateX(0);
         pointer-events: auto;
     }
 
     @media screen and (min-width: 640px) {
-        header {
-            margin: 2rem 4rem 0;
-        }
-
         .nav-links {
             opacity: 1;
             pointer-events: auto;
             position:static;
-            display: flex;
-            flex-direction: row;
         }
 
         .nav-links-a {
-            background: transparent;
             box-shadow: none;
-            padding: 0rem;
-            margin-left: 2rem;
-            margin-top: 0;
-        }
-      
-        .nav-links br {
-            display: none;
-        }
-        
+        }        
     }
 </style>
 
-<header>
+<header class="p-0 my-8 mx-8 sm:mx-20 flex flex-row items-center justify-between">
     <a class="logo" href="/">
         <h2 class:list={[logo_class,logo_class_base]}>/d.</h2>
     </a>
     <nav>            
         <Hamburger />
 
-        <div class="nav-links">
+        <div class="nav-links flex flex-col sm:flex-row items-end gap-4 sm:gap-8 text-right">
             {
                 navLinks.map((link)=>{
                     return (
-                        <a href={link.href} class:list={[navlinks_class, navlinks_class_base, "nav-links-a"]}>{link.label}</a> <br>
+                        <a href={link.href} class:list={[navlinks_class, navlinks_class_base, "nav-links-a"]}>{link.label}</a>
                     )
                 })
             }

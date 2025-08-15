@@ -33,12 +33,13 @@ const returnMessage = "<<";
 <BaseLayout pageTitle = {frontmatter.title}>
     <p class="nomargin noselect"><a class="return" href="/thoughts/">{returnMessage}</a></p>
 
-    <p>{frontmatter.pubDate}</p>
-    <h1 class="title nomargin">{frontmatter.title}</h1>
-    <p class="subtitle">{frontmatter.subtitle}</p>
-    
-    <Prose>
-        <slot />
-        <!-- <slot/> -->
-    </Prose>
+    <div class="flex-col mt-4 items-center">
+        <p class="italic !mb-10 text-left">{frontmatter.pubDate}</p>
+        <h1 class="text-2xl sm:text-3xl text-flamingo title nomargin">{frontmatter.title}</h1>
+        <p class="text-base italic !mb-16">{frontmatter.subtitle}</p>
+        
+        <Prose>
+            <slot />
+        </Prose>
+    </div>
 </BaseLayout>

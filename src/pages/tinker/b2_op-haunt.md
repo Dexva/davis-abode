@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MeShowcaseLayout.astro
+layout: ../../layouts/TinkerShowcaseLayout.astro
 title: 'Operation: Haunted'
 pubDate: 2025-02-12
 subtitle: 'this is totally not just Mario but with blasters'

@@ -1,14 +1,12 @@
 ---
-import '../styles/global.css';
-import PageLayout from '../layouts/PageLayout.astro';
-import TextLink from '../components/TextLink.astro';
-import Tab from '../components/Tab.astro';
-import PaperTab from '../components/PaperTab.astro';
-
-const allContent = Object.values(import.meta.glob('./me/*.md', { eager: true }));
-const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
-const enggPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("engineering"));
-const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:true}));
+import { Image } from 'astro:assets';
+/*======== LAYOUT ========*/
+import BaseLayout from '../layouts/BaseLayout.astro';
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
+import Link from '../components/typography/Link.astro';
+/*======== ASSETS ========*/
+import mePhoto from '../assets/me.JPG'; 
 ---
 
 <style>
@@ -43,26 +41,56 @@ const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:tr
     }
 </style>
 
-<PageLayout siteTabText="me" pageTitle="about me." pageSubtitle="知り合う">
+<BaseLayout siteTabText="me">
     
-    <p class="foreword justify">
-        My name is Davis Nicholo A. Magpantay...
-        which is quite long, so I simply go by <i>Davis</i>.
+    <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Image 
+            src={mePhoto}
+            width={200}
+            alt="me photo"
+            class="rounded-full"
+        />
+        <div class="flex-col">
+            <h1 class="text-4xl sm:text-5xl font-bold text-center sm:text-left
+                        bg-gradient-to-l from-flamingo to-peach text-transparent bg-clip-text">
+                Davis Nicholo <br> Magpantay
+            </h1>
+            <h1 class="text-lg sm:text-xl mt-2 font-bold text-center sm:text-left
+                        bg-gradient-to-l from-flamingo to-peach text-transparent bg-clip-text">
+                <i>デイヴィス・ニコロ・<br class="hidden sm:inline md:hidden">マグパンタイ</i>
+            </h1>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <div class="max-w-144 flex-col">
+            <Paragraph>
+                I'm a Filipino <Link href="/me/">international student</Link> based in Japan,
+                an avid <Link href="/thoughts/"><i>sinigang</i> eater</Link>, and a hobbyist 
+                <Link href="/photos/">scenery catcher</Link>.
+            </Paragraph>
+
+            <Paragraph>
+                Currently, I am a 1st year Chemical Engineering undergrad under the Faculty of Engineering of
+                <Link href="https://www.kyoto-u.ac.jp/en">Kyoto University 京都大学</Link>, supported by
+                <Link href="https://www.iup.kyoto-u.ac.jp/">Kyoto iUP</Link> and the
+                <Link href="https://www.mgc.co.jp/foundation/eng/">Mitsubishi Gas Chemical Memorial Foundation</Link>.
+                I am interested in the intersection of materials and computation. In the past, I mainly <Link href="/tinker/">dabbled</Link>
+                in chemistry-related engineering and software projects.
+            </Paragraph>
+
+            <Paragraph>
+                For more details, feel free to check out my 
+                <Link href="https://docs.google.com/document/d/1KXJEWt627nFji5kxMUQj4V-VpzK9vBnUJcHAE78RGC0/edit?usp=sharing">resume</Link>.
+            </Paragraph>
+
+        </div>
         
-        <br><br>
-        
-        I graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={false} /> in 2024
-        and am now studying at <TextLink text="Kyoto University 京都大学" url="https://www.kyoto-u.ac.jp/en" isBold={false} />
-        as an <TextLink text="iUP scholar" url="https://www.iup.kyoto-u.ac.jp/" isBold={false}/>. This April (2025), I'm entering the University's
-        Department of Chemical Science and Technology.        
+    </div>
+    
+   
 
-        <br><br>
-
-        I've compiled some cool things I've done on this page.
-        For more details, feel free to check out my 
-        <TextLink text="resume" url="https://docs.google.com/document/d/1KXJEWt627nFji5kxMUQj4V-VpzK9vBnUJcHAE78RGC0/edit?usp=sharing"/>.
-    </p>
-
+<!--
 
     <h2 class="bold section">engineering_</h2>
     <p class="sectiondesc justify">
@@ -97,7 +125,7 @@ const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:tr
                 <post.default />
             </PaperTab>
         ))}
-    </div>
+    </div> -->
 
-</PageLayout>
+</BaseLayout>
 

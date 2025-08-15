@@ -14,16 +14,6 @@ const name = "Davis!";
 									var(--color-light2));
 		
 	}
-	.container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-	}
-	.subtext {
-		padding-top: 2em;
-		font-size:110%;
-	}
 	@media screen and (min-width: 640px) {
 		br {
 			display: unset;
@@ -31,15 +21,16 @@ const name = "Davis!";
 	}
 </style>
 
-<BaseLayout pageTitle="">
+<BaseLayout siteTabText="">
 	<!-- <RedParticles 
 		particleCount={40} 
   	/> -->
+	<canvas class="fixed top-0 left-0 -z-10 w-[100%] h-[100%]" id="playground"></canvas>
 
-	<div class="container">
+	<div class="flex flex-col items-center justify-center h-[70vh]">
 		<h2 class="text-2xl sm:text-3xl text-white font-bold [text-shadow:0_3px_10px_var(--color-shadow)] noselect">Hi, I am</h2>
 		<h1 class="text-7xl sm:text-8xl text-white font-bold italic [text-shadow:0_3px_10px_var(--color-shadow)] noselect">{name}</h1>
-		<h4 class="text-lg text-white font-bold [text-shadow:0_3px_6px_var(--color-shadow)]">science . ideas. photos</h4>
+		<h4 class="text-lg text-white font-bold [text-shadow:0_3px_6px_var(--color-shadow)]">science . ideas . photos</h4>
 <!-- 
 		<p class="subtext">
 			I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
@@ -54,5 +45,10 @@ const name = "Davis!";
 			ようこそ 👋
 		</p> -->
 	</div>
+
+	<script>
+        import "../scripts/index-playground.js";
+    </script>
+
 </BaseLayout>
 

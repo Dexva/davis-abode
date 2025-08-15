@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MeShowcaseLayout.astro
+layout: ../../layouts/TinkerShowcaseLayout.astro
 title: 'S.E.A.'
 pubDate: 2025-02-12
 subtitle: 'shock electrodialysis apparatus'
