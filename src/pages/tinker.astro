@@ -9,16 +9,15 @@ import SectionHeading from '../components/typography/SectionHeading.astro';
 import Tab from '../components/containers/Tab.astro';
 import PaperTab from '../components/containers/PaperTab.astro';
 /*======== ASSETS ========*/
-const allContent = Object.values(import.meta.glob('./tinker/*.md', { eager: true }));
-const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
-const enggPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("engineering"));
+const codePosts = Object.values(import.meta.glob('./tinker/software/*.md', {eager:true}))
+const enggPosts = Object.values(import.meta.glob('./tinker/engineering/*.md', {eager:true}))
 const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eager:true}));
 ---
 
 <PageLayout siteTabText="tinker" pageTitle="tinker." pageSubtitle="プロジェクト">
 
-    <SectionHeading>engineering_（工業）</SectionHeading>
-    <Paragraph> Stuff I made.</Paragraph>
+    <SectionHeading>engineering_</SectionHeading>
+    <Paragraph> Memorable projects brought to life.</Paragraph>
     <div class="container flex flex-wrap justify-evenly">
         {enggPosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
@@ -26,9 +25,9 @@ const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eage
     </div>
     
 
-    <SectionHeading>code_</SectionHeading>
+    <SectionHeading>software_</SectionHeading>
     <Paragraph>
-        One of my greatest joys lie in digital stuff.
+        Crafting digital experiences, one line at a time.
     </Paragraph>
     <div class="container flex flex-wrap justify-evenly">
         {codePosts.map((post:any)=>(
@@ -38,7 +37,7 @@ const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eage
 
     <SectionHeading>papers_</SectionHeading>
     <Paragraph>
-        Some papers for math modeling contests or course-related research.
+        A collection of my highschool research and works (primarily in mathematical modeling).
     </Paragraph>
     <div class="flex flex-col">
         {papersPosts.map((post:any, index:number)=>(

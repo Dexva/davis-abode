@@ -3,11 +3,12 @@ import '../../styles/global.css';
 const { paper , index } = Astro.props; 
 
 import Paragraph from '../typography/Paragraph.astro';
+import Prose from '../Prose.astro';
 
 function dispAuthor(author:any,index:number,arrayLen:number) {
     let isLast = (index == arrayLen-1);
     if (!isLast) {
-        return author + " | ";
+        return author + ", ";
     }
     return author;
 }
@@ -72,7 +73,7 @@ function dispAuthor(author:any,index:number,arrayLen:number) {
         <p  class="date right">({paper.year})</p>
     </div>
 
-    <div class="mt-2">
+    <div class="mt-2 text-justify">
         <Paragraph><slot /></Paragraph>
     </div>   
 </div>

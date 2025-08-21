@@ -9,17 +9,25 @@ import '../styles/global.css';
 
   prose-h1:no-underline
   prose-h1:text-flamingo
+  prose-h1:!my-3
+
   prose-h2:no-underline
   prose-h2:text-flamingo
+  prose-h2:!my-3
+  prose-h2:border-b-2
+
   prose-h3:no-underline
   prose-h3:text-flamingo
+  prose-h3:!my-3
 
   prose-p:text-left
-  prose-p:my-4
+  prose-p:!my-3
   prose-p:text-l
   prose-p:tracking-wide 
   prose-p:text-black
   prose-p:font-medium
+
+  prose-strong:text-black
 
   prose-a:text-flamingo  
   prose-a:hover:text-bg1
@@ -28,6 +36,8 @@ import '../styles/global.css';
   prose-ul:my-0
   prose-ul:text-l
   prose-li:text-black
+  prose-li:font-medium 
+  prose-li:tracking-wide
 
   prose-img:rounded-xl 
   prose-img:max-w-full
@@ -51,7 +61,7 @@ import '../styles/global.css';
   ">
   <slot/>
 </div>
-<!-- 
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const prose = document.querySelector(".prose");
@@ -64,4 +74,4 @@ import '../styles/global.css';
       }
       
     });
-</script> -->
+</script>

@@ -6,4 +6,4 @@ url: http://doi.org/10.34614/2023IYRC_S27
 tags: ['communication studies', 'humanities']
 ---
 
-First-author of a communication studies paper published in the proceedings of the International Young Researchers Conference 2023. We investigated the influence of the online environment to the practices of a novel demographic of public speakers speakers that emerged during the COVID-19 pandemic.
+**📄 First-author paper published in the proceedings of the International Young Researchers Conference 2023**. This communication studies paper investigates a novel demographic: public speakers who began their careers during the virtual-first environment of the COVID-19 pandemic. We analyzed how the online modality shaped their public speaking practices and techniques.
