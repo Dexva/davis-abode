@@ -21,8 +21,9 @@ const navlinks_class = isHomePage ?
                    "text-white bg-flamingo text-flamingo hover:[text-shadow:0_3px_8px_#fff]" :
                    "text-flamingo bg-bg1 hover:[text-shadow:0_3px_8px_var(--color-light2)]";
 
-const navlinks_class_base = "!text-lg font-bold tracking-wider p-2 sm:p-0 sm:bg-transparent"
+const navlinks_class_base = "!text-lg font-bold tracking-wider p-2 sm:p-0 sm:bg-transparent";
 
+const currentLink_class = "underline";
 ---
 
 <style>
@@ -64,6 +65,7 @@ const navlinks_class_base = "!text-lg font-bold tracking-wider p-2 sm:p-0 sm:bg-
             opacity: 1;
             pointer-events: auto;
             position:static;
+            transform: translateX(0);
         }
 
         .nav-links-a {

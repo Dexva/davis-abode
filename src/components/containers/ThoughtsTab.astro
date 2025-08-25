@@ -39,8 +39,8 @@ const { url , frontmatter } = Astro.props;
 <a href={url} class="link floating">
     <div class="p-4 flex-row">
         <div class="left flex-col">
-            <h3 class="text-xl text-flamingo font-bold">{frontmatter.title}</h3>
-            <p class="subtitle">{frontmatter.subtitle}</p>
+            <h3 class="text-xl sm:text-2xl text-flamingo font-bold">{frontmatter.title}</h3>
+            <p class="">{frontmatter.subtitle}</p>
         </div>
         <div class="right">
             <p class="!mb-2"><i>{frontmatter.pubDate}</i></p>

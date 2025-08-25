@@ -5,8 +5,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 /*======== TYPOGRAPHY ========*/
 import Paragraph from '../components/typography/Paragraph.astro';
 import Link from '../components/typography/Link.astro';
+/*======== COMPONENTS ========*/
+import Button from '../components/buttons/Button.astro';
 /*======== ASSETS ========*/
 import mePhoto from '../assets/me.JPG'; 
+import GitHubIcon from '../assets/GitHubIcon.astro';
+import InstagramIcon from '../assets/InstagramIcon.astro';
+import LinkedInIcon from '../assets/LinkedInIcon.astro';
+const iconClass = "w-6 h-6";
 ---
 
 <style>
@@ -65,67 +71,47 @@ import mePhoto from '../assets/me.JPG';
     <div class="flex justify-center">
         <div class="max-w-144 flex-col">
             <Paragraph>
-                I'm a Filipino <Link href="/me/">international student</Link> based in Japan,
-                an avid <Link href="/thoughts/"><i>sinigang</i> eater</Link>, and a hobbyist 
-                <Link href="/photos/">scenery catcher</Link>.
+                I'm a Filipino<Link href="/me/">international student</Link>based in Japan,
+                an avid<Link href="/thoughts/"><i>sinigang</i> eater</Link>, and a hobbyist<Link href="/photos/">scenery catcher</Link>.
             </Paragraph>
 
             <Paragraph>
-                As a 1st year Chemical Engineering undergrad at
-                <Link href="https://www.kyoto-u.ac.jp/en">Kyoto University (京都大学)</Link> supported by
-                <Link href="https://www.iup.kyoto-u.ac.jp/">Kyoto iUP</Link> and the
-                <Link href="https://www.mgc.co.jp/foundation/eng/">Mitsubishi Gas Chemical Memorial Foundation</Link>,
-                I'm diving into the intersection of materials and computation. I've previously
-                <Link href="/tinker/">dabbled</Link> on projects that span chemistry-related software. engineering, and even math modeling.
+                As a 1st year Chemical Engineering undergrad at<Link href="https://www.kyoto-u.ac.jp/en">Kyoto University (京都大学)</Link>
+                supported by<Link href="https://www.iup.kyoto-u.ac.jp/">Kyoto iUP</Link>
+                and the<Link href="https://www.mgc.co.jp/foundation/eng/">Mitsubishi Gas Chemical Memorial Foundation</Link>,
+                I'm currently interested in studying the intersection of materials and computation.
+                I've previously<Link href="/tinker/">dabbled</Link> on projects that
+                span chemistry-related software. engineering, and even math modeling.
             </Paragraph>
 
             <Paragraph>
-                For more details, feel free to check out my 
-                <Link href="https://docs.google.com/document/d/1KXJEWt627nFji5kxMUQj4V-VpzK9vBnUJcHAE78RGC0/edit?usp=sharing">resume</Link>.
+                For more details, check out my<Link href="https://docs.google.com/document/d/1KXJEWt627nFji5kxMUQj4V-VpzK9vBnUJcHAE78RGC0/edit?usp=sharing">resume</Link>(you 
+                may reach me at the email indicated).
+                Also, feel free to check out my other platforms:
             </Paragraph>
 
+            <div class="gap-4 flex-wrap">
+                <Button href="https://github.com/Dexva/">
+                    <GitHubIcon classlist={iconClass}/>
+                    <span>GitHub</span>
+                </Button>
+
+                <Button href="https://www.instagram.com/haiiamdavis?igsh=MWZsaGk4ZGQyZzhrcg==">
+                    <InstagramIcon classlist={iconClass}/>
+                    <span>Instagram</span>
+                </Button>
+
+                <Button href="https://www.linkedin.com/in/davis-nicholo-magpantay-986ba2249/">
+                    <LinkedInIcon classlist={iconClass}/>
+                    <span>LinkedIn</span>
+                </Button>
+            </div>
         </div>
-        
     </div>
+
+
     
-   
-
-<!--
-
-    <h2 class="bold section">engineering_</h2>
-    <p class="sectiondesc justify">
-        As someone in the engineering discipline, I have had some fun projects past. Here are my picks:
-    </p>
-    <div class="container">
-        {enggPosts.map((post:any)=>(
-            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-        ))}
-    </div>
     
-
-    <h2 class="bold section">code_</h2>
-    <p class="sectiondesc justify">
-        One of my greatest joys lie in digital stuff.
-        These are some work that I am particularly proud of:
-    </p>
-    <div class="container">
-        {codePosts.map((post:any)=>(
-            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-        ))}
-    </div>
-
-    <h2 class="bold section">papers_</h2>
-    <p class="sectiondesc justify">
-        I also co-wrote several papers, primarily for math modeling contests or course-related research.
-        Here are the notable ones:
-    </p>
-    <div>
-        {papersPosts.map((post:any, index:number)=>(
-            <PaperTab paper={post.frontmatter} index={index}>
-                <post.default />
-            </PaperTab>
-        ))}
-    </div> -->
 
 </BaseLayout>
 

@@ -6,7 +6,8 @@ import Paragraph from '../components/typography/Paragraph.astro';
 /*======== COMPONENTS ========*/
 import ThoughtsTab from '../components/containers/ThoughtsTab.astro';
 /*======== ASSETS ========*/
-const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
+let allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
+allContent = allContent.sort((x,y) => new Date(y.frontmatter.pubDate) - new Date(x.frontmatter.pubDate));
 ---
 
 <PageLayout siteTabText="thoughts" pageTitle="thoughts." pageSubtitle="ブログ">
@@ -15,7 +16,7 @@ const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: tr
         <b>tl;dr: </b> <i>food recipes, shower thoughts, and everything in between...</i>
     </Paragraph>
 
-    <div class="flex-col">
+    <div class="flex-col gap-4">
         {
         allContent.map((post:any)=>(
             <ThoughtsTab url={post.url} frontmatter={post.frontmatter}/>

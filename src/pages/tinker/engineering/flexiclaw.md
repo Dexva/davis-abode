@@ -23,7 +23,7 @@ FlexiClaw was our team's submission to the ACAM 2021 Winnovator Techfest, a proj
 ## The Challenge
 Traditional rigid claw mechanisms rely on multiple parts, making them prone to wear and tear and difficult to fabricate at micro-scales.
 
-## Our Solution
+## Design Concept
 Inspired by research from the [BYU Compliant Mechanisms Research Group](https://www.compliantmechanisms.byu.edu/), FlexiClaw is a monolithic (single-piece) bi-claw mechanism. This structure minimizes failure points and allows for easy fabrication—we even 3D-printed a working prototype with a standard Ender 3 printer.
 
 ## Key Outcome

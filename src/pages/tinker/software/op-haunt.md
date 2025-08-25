@@ -22,14 +22,14 @@ _A retro metroidvania game about a ghost-hunting robot, built from the ground up
 ## The Game
 OpHaunt was my first "real" game development project, created for a Java course in 10th grade. It's a metroidvania-style platformer where you control a robot on a mission to clear a hotel of its ghostly residents, all while dodging their attacks.
 
-## The Challenge: No Engine, No Libraries, Just Java Swing
+## No Engine, No Libraries, Just Java Swing
 The main constraint of the project was that we had to build it from scratch—no game engines or physics libraries allowed. We made the wonderful decision to build the entire game in Java Swing. This forced us to engineer all the core game mechanics from first principles, which was an incredible learning experience. We handled:
 - Character kinematics and collision detection
 - Camera movement and sprite culling
 - Procedural map generation
 - A custom graphics rendering loop
 
-## The Result
+## User Rating
 
 The official user-tester (my 7-year-old nephew) gave the game a glowing review:
 

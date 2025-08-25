@@ -1,44 +1,155 @@
 [
     {
-        "imgURL" : "https://i.postimg.cc/hjcTDJ51/2.webp",
+        "id" : 1,
+        "imgURL" : "https://i.postimg.cc/2yFkZ3t8/1.webp",
         "externalURL" : "https://www.instagram.com/p/DDN1Iuiz_uE/?img_index=1",
-        "title" : "Toufukuji autumn leaves",
-        "date" : "",
-        "tags" : ["autumn", "landmarks", "nature"]
+        "title" : "Autumn Leaves",
+        "date" : 2025,
+        "location" : "Toufukuji, JP",
+        "tags" : ["favorites","flora","autumn"]
     },
     {
-        "imgURL" : "https://i.postimg.cc/q782Hcj7/3.webp",
-        "externalURL" : "https://www.instagram.com/p/DDLqiY5Swjs/?img_index=2",
-        "title" : "Yellow feet",
-        "date" : "",
-        "tags" : ["autumn", "nature"]
+        "id" : 2,
+        "imgURL" : "https://i.postimg.cc/ncpctYss/2.webp",
+        "externalURL" : "",
+        "title" : "Yellow Feet",
+        "date" : 2025,
+        "location" : "Kyoto, JP",
+        "tags" : ["autumn"]
     },
     {
-        "imgURL" : "https://i.postimg.cc/d16dLsMP/4.webp",
-        "externalURL" : "https://www.instagram.com/p/DDLqiY5Swjs/?img_index=1",
-        "title" : "Higashioji-dori",
-        "date" : "",
-        "tags" : ["autumn", "streets"]
+        "id" : 3,
+        "imgURL" : "https://i.postimg.cc/cLJxvxB0/3.webp",
+        "externalURL" : "",
+        "title" : "Higashioji",
+        "date" : 2025,
+        "location" : "Kyoto, JP",
+        "tags" : ["autumn"]
     },
     {
-        "imgURL" : "https://i.postimg.cc/mkr99vRc/5.webp",
-        "externalURL" : "https://www.instagram.com/p/DBV99mFSmO9/?img_index=1",
-        "title" : "Osaka castle",
-        "date" : "",
-        "tags" : ["autumn", "landmarks"]
+        "id" : 4,
+        "imgURL" : "https://i.postimg.cc/K8sZL60L/4.webp",
+        "externalURL" : "",
+        "title" : "Osaka Castle",
+        "date" : 2025,
+        "location" : "Osaka, JP",
+        "tags" : ["structures"]
     },
     {
-        "imgURL" : "https://i.postimg.cc/T1HDJtYt/6.webp",
-        "externalURL" : "https://www.instagram.com/p/DDN1Iuiz_uE/?img_index=7",
-        "title" : "Toufukuji",
-        "date" : "",
-        "tags" : ["autumn", "landmarks", "nature"]
+        "id" : 5,
+        "imgURL" : "https://i.postimg.cc/XvR41wSY/5.webp",
+        "externalURL" : "",
+        "title" : "Autumn Temple",
+        "date" : 2025,
+        "location" : "Toufukuji, JP",
+        "tags" : ["autumn", "structures"]
     },
     {
-        "imgURL" : "https://i.postimg.cc/qBmyrvX2/7.webp",
-        "externalURL" : "https://www.instagram.com/p/DDN1Iuiz_uE/?img_index=8",
-        "title" : "Toufukuji garden",
-        "date" : "",
-        "tags" : ["autumn", "landmarks", "nature"]
+        "id" : 6,
+        "imgURL" : "https://i.postimg.cc/vZDyQPGm/6.webp",
+        "externalURL" : "",
+        "title" : "Zen Garden",
+        "date" : 2025,
+        "location" : "Toufukuji, JP",
+        "tags" : ["autumn"]
+    },
+    {
+        "id" : 7,
+        "imgURL" : "https://i.postimg.cc/kG99qq5r/7.webp",
+        "externalURL" : "",
+        "title" : "Sunset Beach",
+        "date" : 2021,
+        "location" : "Batangas, PH",
+        "tags" : ["landscape"]
+    },
+    {
+        "id" : 8,
+        "imgURL" : "https://i.postimg.cc/bNy85yMk/8.webp",
+        "externalURL" : "",
+        "title" : "Taal Volcano",
+        "date" : 2021,
+        "location" : "Batangas, PH",
+        "tags" : ["favorites","landscape"]
+    },
+    {
+        "id" : 9,
+        "imgURL" : "https://i.postimg.cc/R0HztN65/9.webp",
+        "externalURL" : "",
+        "title" : "Open Seas",
+        "date" : 2022,
+        "location" : "Samar, PH",
+        "tags" : ["landscape"]
+    },
+    {
+        "id" : 10,
+        "imgURL" : "https://i.postimg.cc/tTGGNpW1/10.webp",
+        "externalURL" : "",
+        "title" : "Hajime no Sakura",
+        "date" : 2052,
+        "location" : "Philosopher's Path, JP",
+        "tags" : ["flora"]
+    },
+    {
+        "id" : 11,
+        "imgURL" : "https://i.postimg.cc/9MP5xKYL/11.webp",
+        "externalURL" : "",
+        "title" : "Blue Flower",
+        "date" : 2025,
+        "location" : "Yoshida Shrine, JP",
+        "tags" : ["flora"]
+    },
+    {
+        "id" : 12,
+        "imgURL" : "https://i.postimg.cc/Gtc06KMd/12.webp",
+        "externalURL" : "",
+        "title" : "Extra Blue Flower",
+        "date" : 2025,
+        "location" : "Yoshida Shrine, JP",
+        "tags" : ["favorites","flora"]
+    },
+    {
+        "id" : 13,
+        "imgURL" : "https://i.postimg.cc/rFwXJh09/13.webp",
+        "externalURL" : "",
+        "title" : "Yoshida Shrine",
+        "date" : 2025,
+        "location" : "Kyoto, JP",
+        "tags" : ["favorites","structures"]
+    },
+    {
+        "id" : 14,
+        "imgURL" : "https://i.postimg.cc/WzXRVZKr/14.webp",
+        "externalURL" : "",
+        "title" : "Kyoto City Hall",
+        "date" : 2025,
+        "location" : "Kyoto, JP",
+        "tags" : ["structures"]
+    },
+    {
+        "id" : 15,
+        "imgURL" : "https://i.postimg.cc/pVZMKNTT/15.webp",
+        "externalURL" : "",
+        "title" : "Tokyo Station",
+        "date" : 2025,
+        "location" : "Tokyo, JP",
+        "tags" : ["structures"]
+    },
+    {
+        "id" : 16,
+        "imgURL" : "https://i.postimg.cc/DypVYq13/16.webp",
+        "externalURL" : "",
+        "title" : "Kitanotenmangu",
+        "date" : 2025,
+        "location" : "Kyoto, JP",
+        "tags" : ["structures"]
+    },
+    {
+        "id" : 17,
+        "imgURL" : "https://i.postimg.cc/fR344Jvt/17.webp",
+        "externalURL" : "",
+        "title" : "Mount Maya",
+        "date" : 2025,
+        "location" : "Kobe, JP",
+        "tags" : ["landscape"]
     }
 ]

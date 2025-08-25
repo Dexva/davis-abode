@@ -19,11 +19,11 @@ tags: ['engineering']
 
 _A grant-funded research project to develop a community-focused desalination prototype._
 
-## The Mission
+## Background
 
 Backed by a research grant from the [DOST-PCIEERD](https://www.facebook.com/pcieerd/) Young Innovators Program, our team's mission was to develop a practical water desalination solution for Philippine coastal communities.
 
-## Our Technical Approach
+## Technical Approach
 Our work focused on adapting shock electrodialysis (SED)—an emerging technology pioneered by the Bazant Group at MIT—for real-world application. We aimed to create a prototype that was both effective and appropriate for the local context.
 
 ## Project Lifecycle

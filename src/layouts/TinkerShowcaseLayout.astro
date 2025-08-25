@@ -6,6 +6,8 @@ import Prose from '../components/Prose.astro';
 const { frontmatter } = Astro.props;
 const returnMessage = "<<";
 
+import Button from '../components/buttons/Button.astro';
+
 let scale = frontmatter.image.scale;
 let width = frontmatter.image.width * scale;
 let height = frontmatter.image.height * scale;
@@ -39,11 +41,12 @@ let height = frontmatter.image.height * scale;
         </div>
         <div class="flex flex-col items-center">
             <Image src={frontmatter.image.url} alt={frontmatter.image.alt} width={width} height={height}/>
-            {frontmatter.linkText && <div class="mt-4 p-2 rounded-xl noselect floating border-1 text-flamingo hover:text-bg1 hover:bg-flamingo">
-                <p>
-                <a href={frontmatter.externalURL} target="_blank">{frontmatter.linkText}</a>
-                </p>
-            </div>}
+            <div class="mt-4">
+            {frontmatter.linkText && <Button href={frontmatter.externalURL}>
+                <span>{frontmatter.linkText}</span>
+                </Button>
+            }
+            </div>
         </div>
     </div>
 </BaseLayout>

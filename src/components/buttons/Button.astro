@@ -1,0 +1,12 @@
+---
+import '../../styles/global.css';
+const { href } = Astro.props;
+---
+
+<div>
+<a href={href} target="_blank" class="">
+    <div class="items-center gap-2 py-2 px-4 noselect border-solid border-flamingo rounded-sm border-[2px] text-flamingo hover:bg-flamingo hover:text-bg1 floating">
+        <slot />
+    </div>
+</a>
+</div>

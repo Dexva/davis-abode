@@ -4,6 +4,8 @@ import TextLink from '../components/TextLink.astro';
 import RedParticles from '../components/playground/RedParticles.astro';
 
 const name = "Davis!";
+const lastUpdated = "2025/08/24";
+const featuredLabel = "caffeine molecule in 3D";
 ---
 
 <style>
@@ -22,9 +24,6 @@ const name = "Davis!";
 </style>
 
 <BaseLayout siteTabText="">
-	<!-- <RedParticles 
-		particleCount={40} 
-  	/> -->
 	<canvas class="fixed top-0 left-0 -z-10 w-[100%] h-[100%]" id="playground"></canvas>
 
 	<div class="flex flex-col items-center justify-center h-[70vh]">
@@ -36,19 +35,13 @@ const name = "Davis!";
 		<h4 class="text-lg text-white font-bold text-center [text-shadow:0_2px_6px_#fff]">
 			exploring chemistry, computation, & photography.
 		</h4>
-<!-- 
-		<p class="subtext">
-			I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
-			based in Kyoto.
+	</div>
 
-			<br class="hide"/>
-			an avid <TextLink url="/thoughts" text="sinigang eater" isBold={true}/>,
-			and a <TextLink url="/photos" text="scenery catcher" isBold={true}/>.
-			
-			<br/><br/>
-			
-			ようこそ 👋
-		</p> -->
+	<div class="fixed bottom-8 right-8 sm:right-20 w-full items-end text-right tracking-wide italic flex-col text-white">
+		<div class="mb-1 w-30 h-[1px] bg-white"></div>
+		<p class="text-sm">Featuring {featuredLabel}</p>
+		<p class="text-sm">Last update: {lastUpdated}</p>
+		<div class="mt-1 w-40 h-[1px] bg-white"></div>
 	</div>
 
 	<script>

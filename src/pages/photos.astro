@@ -1,72 +1,26 @@
 ---
-import Images from './photos/list.json';
+import complete_images from './photos/list.json';
 /*======== LAYOUT ========*/
 import PageLayout from '../layouts/PageLayout.astro';
 /*======== TYPOGRAPHY ========*/
 import Paragraph from '../components/typography/Paragraph.astro';
+/*======== COMPONENTS ========*/
+import { PhotoGallery } from '../components/containers/PhotoGallery';
+import { ExternalIcon } from '../assets/ExternalIcon';
+const allTags = ['All', ...new Set(complete_images.flatMap(image => image.tags))];
 ---
-
-<style>
-    .imglink {
-        border: 1px solid rgba(0,0,0,0.2);
-        display: inline-block;
-        width:90%;
-        cursor: ne-resize;
-        overflow:hidden;
-        padding: 0px;
-        opacity: 1;
-        box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2); 
-        padding: 10px;
-        margin-bottom: 2rem;
-    }
-    .imglink:hover {
-        opacity: 1;
-        background-color:transparent;
-        box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4); 
-    }
-    .imglink:active {
-        box-shadow: 0px 10px 10px 0px rgba(150, 33, 2, 0.8); 
-    }
-    .img {
-        display:block;
-        width: 100%;
-        height: auto;
-        object-fit:cover;
-    }
-    .imgtitle {
-        color: black;
-        margin-top:3%;
-        padding-left:2%;
-        padding-bottom: 10px;
-    }
-
-    @media screen and (min-width:540px) {
-        .imglink {
-            width: 40%;
-        }
-    }
-
-    @media screen and (min-width:800px) {
-        .imglink {
-            width: 28%;
-        }
-    }
-</style>
 
 <PageLayout siteTabText="photos" pageTitle="photos." pageSubtitle="写真">
     
     <Paragraph>
-        I have been taking photos with my trusty Huawei P30 Pro since I first got it back in Grade 8.
-        Here are some of my favorites. <i>Click the photocards to view the original post at my instagram.</i>
+        My passion for photography began in 8th grade with my trusty Huawei P30 Pro and its LEICA lens.
+        Since then, I’ve loved capturing the unique scenes I encounter day to day.
+        This gallery is a curated collection of my favorite shots (most are fairly recent).
     </Paragraph>
 
-    <div class="flex flex-row flex-wrap justify-evenly">
-        {Images.map((image)=>(
-            <a class="imglink floating" href={image.externalURL} target="_blank">
-                <img class="img" src={image.imgURL} alt={image.title} />
-                <p class="imgtitle">{image.title}</p>
-            </a>
-        ))}
-    </div>
-</PageLayout>
+    <Paragraph>
+        Photos marked with the redirect icon  (<ExternalIcon classlist="w-4 inline"/>) will open the original post on my Instagram.
+    </Paragraph>
 
+    <PhotoGallery allImages={complete_images} client:load />
+</PageLayout>
