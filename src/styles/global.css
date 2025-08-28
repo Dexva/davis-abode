@@ -81,6 +81,11 @@ h1, h2, h3, p {
   color: black;
 }
 
+.prose .katex-display{
+  display: block;
+  overflow-x: auto;
+}
+
 .dark .prose.prose-invert .katex {
   color: white;
 }
