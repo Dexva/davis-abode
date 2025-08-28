@@ -9,15 +9,24 @@ import SectionHeading from '../components/typography/SectionHeading.astro';
 import Tab from '../components/containers/Tab.astro';
 import PaperTab from '../components/containers/PaperTab.astro';
 /*======== ASSETS ========*/
-const codePosts = Object.values(import.meta.glob('./tinker/software/*.md', {eager:true}))
+const experimentsPosts = Object.values(import.meta.glob('./tinker/experiments/*.md', {eager:true}))
+const softwarePosts = Object.values(import.meta.glob('./tinker/software/*.md', {eager:true}))
 const enggPosts = Object.values(import.meta.glob('./tinker/engineering/*.md', {eager:true}))
 const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eager:true}));
 ---
 
 <PageLayout siteTabText="tinker" pageTitle="tinker." pageSubtitle="プロジェクト">
 
+    <SectionHeading>experiments_</SectionHeading>
+    <Paragraph></Paragraph>
+    <div class="container flex flex-wrap justify-evenly">
+        {experimentsPosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+    
     <SectionHeading>engineering_</SectionHeading>
-    <Paragraph> Memorable projects brought to life.</Paragraph>
+    <Paragraph>Memorable projects brought to life.</Paragraph>
     <div class="container flex flex-wrap justify-evenly">
         {enggPosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
@@ -26,11 +35,9 @@ const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eage
     
 
     <SectionHeading>software_</SectionHeading>
-    <Paragraph>
-        Crafting digital experiences.
-    </Paragraph>
+    <Paragraph>Crafting digital experiences.</Paragraph>
     <div class="container flex flex-wrap justify-evenly">
-        {codePosts.map((post:any)=>(
+        {softwarePosts.map((post:any)=>(
             <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
         ))}
     </div>

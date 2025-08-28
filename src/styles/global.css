@@ -77,6 +77,14 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+.prose .katex {
+  color: black;
+}
+
+.dark .prose.prose-invert .katex {
+  color: white;
+}
+
 /*================== COMPONENTS ==================*/
 
 

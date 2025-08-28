@@ -31,7 +31,9 @@ const returnMessage = "<<";
     <p class="nomargin noselect hover:[text-shadow:0_3px_8px_var(--color-light2)]"><a class="return" href="/thoughts/">{returnMessage}</a></p>
 
     <div class="flex-col mt-4 items-center">
-        <p class="italic !mb-10 text-left">{frontmatter.pubDate}</p>
+        <p class="italic text-left">{frontmatter.pubDate}</p>
+        {frontmatter.editDate && <p class="text-slate-400 italic text-left">(edited: {frontmatter.editDate})</p>}
+        <div class="mb-10"></div>
         <h1 class="text-4xl sm:text-5xl text-center text-flamingo title nomargin">{frontmatter.title}</h1>
         <p class="text-base text-center italic !mb-16">{frontmatter.subtitle}</p>
         
