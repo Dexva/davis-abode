@@ -17,7 +17,7 @@ tags: ['code','machine learning']
 
 # From Scratch: Linear Regression
 
-I implemented [linear regression (gradient descent) using only ``numpy`` and ``matplotlib`` (for visualization). I made two implementation: a 1-feature version (the simplest case), and a generalized version (used 2-features for visualization). Here I'll describe the general implementation.
+I implemented [linear regression](https://en.wikipedia.org/wiki/Linear_regression) (gradient descent) using only ``numpy`` and ``matplotlib`` (for visualization). I made two implementation: a 1-feature version (the simplest case), and a generalized version (used 2-features for visualization). Here I'll describe the general implementation.
 
 ## Technical Details
 
