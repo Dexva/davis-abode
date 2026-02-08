@@ -1,39 +1,27 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ThoughtsTab from '../components/ThoughtsTab.astro';
-
-const allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
+/*======== LAYOUT ========*/
+import PageLayout from '../layouts/PageLayout.astro';
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
+/*======== COMPONENTS ========*/
+import ThoughtsTab from '../components/containers/ThoughtsTab.astro';
+/*======== ASSETS ========*/
+let allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
+allContent = allContent.sort((x,y) => new Date(y.frontmatter.pubDate) - new Date(x.frontmatter.pubDate));
 ---
 
-<style>
-    .container {
-        margin-top:5%;
-    }
-    .container a {
-        cursor: pointer;
-    }
-    .subtitle {
-        margin-bottom: 2em;
-    }
-</style>
-
-<BaseLayout pageTitle="thoughts">
+<PageLayout siteTabText="thoughts" pageTitle="thoughts." pageSubtitle="ブログ">
     
-    <h2 class="nomargin bold">理由</h2>
-    <h1 class="nomargin bold">bites and bonds</h1>
-    
-    <p class="foreword justify">
+    <Paragraph>
         <b>tl;dr: </b> <i>food recipes, shower thoughts, and everything in between...</i>
-    </p>
+    </Paragraph>
 
-    <div class="container">
+    <div class="flex-col gap-4">
         {
         allContent.map((post:any)=>(
-            // <ThoughtsTab url={post.url} title={post.title} subtitle={post.subtitle} pubDate={post.pubDate} tags={post.tags}/>
             <ThoughtsTab url={post.url} frontmatter={post.frontmatter}/>
         ))}
     </div>    
 
-</BaseLayout>
+</PageLayout>
 

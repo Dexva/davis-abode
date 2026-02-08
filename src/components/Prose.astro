@@ -1,34 +1,62 @@
 ---
-import '../styles/tailwind.css';
 import '../styles/global.css';
+import 'katex/dist/katex.min.css';
 ---
 
-<style>
-  .container {
-    width:100%;
-  }
-</style>
-
 <div
-  class="container
+  class="w-[100%] flex flex-col
   prose
   dark:prose-invert
+
   prose-h1:no-underline
+  prose-h1:text-flamingo
+  prose-h1:!my-3
+
   prose-h2:no-underline
+  prose-h2:text-flamingo
+  prose-h2:!my-4
+  prose-h2:border-b-2
+
   prose-h3:no-underline
-  prose-p:text-justify
-  prose-p:my-4
+  prose-h3:text-flamingo
+  prose-h3:!my-2
+
+  prose-p:text-left
+  prose-p:!my-2
   prose-p:text-l
+  prose-p:tracking-wide 
+  prose-p:text-black
+  prose-p:font-medium
+
+  prose-span:text-black
+
+  prose-strong:text-black
+
+  prose-a:text-flamingo  
+  prose-a:hover:text-bg1
+  prose-a:hover:bg-flamingo
+  prose-a:hover:cursor-help
+
   prose-ul:my-0
   prose-ul:text-l
+  prose-ol:my-0
+  prose-ol:text-l
+  prose-li:text-black
+  prose-li:font-medium 
+  prose-li:tracking-wide
+
   prose-img:rounded-xl 
   prose-img:max-w-full
-  prose-img:m-0
+  prose-img:my-2
+  prose-img:mx-auto
+
   prose-blockquote:border-l-4
   prose-blockquote:border-gray-600
   prose-blockquote:pl-4
   prose-blockquote:italic
+
   prose-headings:underline
+
   prose-code:bg-[#24292e]
   prose-code:text-white
   prose-code:px-1

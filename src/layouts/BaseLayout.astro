@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
-import '../styles/tailwind.css';
+import 'katex/dist/katex.min.css';
 import Header from '../components/Header.astro';
-const { pageTitle } = Astro.props;
+const { siteTabText } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,27 +11,17 @@ const { pageTitle } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>davism / {pageTitle}</title>
-		<style>
-			.main {
-				margin-left:0.5em;
-				margin-right:0.5em;
-			}
-			@media screen and (min-width: 636px) {
-				.main {
-					margin-left: 2em;
-					margin-right: 2em;
-				}
-			}
-		</style>
+		<title>davism / {siteTabText}</title>
 	</head>
 	<body>
-		<div class="main">
-			<Header />
+		<Header />
+		<div class="flex-col justify-start mx-8 my-0 sm:mx-20">
 			<slot />
 		</div>
 		<script>
 			import "../scripts/menu.js";
 		</script>
 	</body>
+
+	<div class="h-8"></div>
 </html>

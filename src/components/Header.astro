@@ -1,16 +1,94 @@
 ---
-import Navigation from './Navigation.astro';
+import Hamburger from './Hamburger.astro';
+
+const { pathname } = Astro.url;
+const isHomePage = pathname === '/';
+
+const navLinks = [
+  { href: "/me/", label: "/me" },
+  { href: "/tinker/", label: "/tinker"},
+  { href: "/thoughts/", label: "/blog" },
+  { href: "/photos/", label: "/photos" },
+];
+
+const logo_class = isHomePage ?
+                   "text-white hover:[text-shadow:0_3px_8px_white]" :
+                   "text-flamingo hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+
+const logo_class_base = "text-2xl sm:text-3xl font-bold tracking-wider";
+
+const navlinks_class = isHomePage ?
+                   "text-white bg-flamingo text-flamingo hover:[text-shadow:0_3px_8px_#fff]" :
+                   "text-flamingo bg-bg1 hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+
+const navlinks_class_base = "!text-lg font-bold tracking-wider p-2 sm:p-0 sm:bg-transparent";
+
+const currentLink_class = "underline";
 ---
 
 <style>
     header {
-        padding: 0;
-        margin: 0;
+        /* position: sticky; */
+        /* top: 2rem; */
+    }
+    nav {
+        position: relative;
+    }
+    .logo:hover {
+        cursor: pointer;
+    }
+    .nav-links {
+        opacity: 0;
+        position: absolute;
+        top: 180%; /* Position it just below the parent <nav> element */
+        right: 0;
+        pointer-events: none;
+        transform: translateX(15px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-links-a {
+        box-shadow: 0 2px 6px black;
+        border-radius: 10px;
+    }
+    a {
+        cursor: pointer;
+    }
+
+    .expanded {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    @media screen and (min-width: 640px) {
+        .nav-links {
+            opacity: 1;
+            pointer-events: auto;
+            position:static;
+            transform: translateX(0);
+        }
+
+        .nav-links-a {
+            box-shadow: none;
+        }        
     }
 </style>
 
-<header>
-    <nav>
-        <Navigation></Navigation>
+<header class="p-0 my-8 mx-8 sm:mx-20 flex flex-row items-center justify-between">
+    <a class="logo" href="/">
+        <h2 class:list={[logo_class,logo_class_base]}>/d.</h2>
+    </a>
+    <nav>            
+        <Hamburger />
+
+        <div class="nav-links flex flex-col sm:flex-row items-end gap-4 sm:gap-8 text-right">
+            {
+                navLinks.map((link)=>{
+                    return (
+                        <a href={link.href} class:list={[navlinks_class, navlinks_class_base, "nav-links-a"]}>{link.label}</a>
+                    )
+                })
+            }
+        </div>
     </nav>    
 </header>

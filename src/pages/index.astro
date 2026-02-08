@@ -1,71 +1,49 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TextLink from '../components/TextLink.astro';
-import RedParticles from '../components/playground/RedParticles.astro';
-
-const foreword = "hi, i'm";
-const name = "davis!";
+const name = "Davis!";
+const lastUpdated = "2025/10/05";
+const featuredLabel = "caffeine molecule in 3D";
 ---
 
 <style>
-	.container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-top: 20vh;
+	body { 
+    	background: radial-gradient(circle at top left,
+									var(--color-main),
+									var(--color-light1),
+									var(--color-light2));
+		
 	}
-	h1, p {
-		padding:0;
-		margin:0;
-		text-align:center;
-	}
-
-	.foreword {
-		font-weight:300;
-		font-size:280%;
-		padding-bottom: 0%;
-	}
-	.name {
-		margin-top: -30px;
-		font-weight:900;
-		font-size: 500%;
-		background-image: linear-gradient(red, #ffa3a3);
-    	color: transparent;
-    	background-clip: text;
-	}
-	.subtext {
-		padding-top: 2em;
-		font-size:110%;
-	}
-
-	@media screen and (min-width: 636px) {
+	@media screen and (min-width: 640px) {
 		br {
 			display: unset;
 		}
 	}
 </style>
 
-<BaseLayout pageTitle="">
-	<RedParticles 
-		particleCount={40} 
-  	/>
+<BaseLayout siteTabText="">
+	<canvas class="fixed top-0 left-0 -z-10 w-[100%] h-[100%]" id="playground"></canvas>
 
-	<div class="container">
-		<h1 class="foreword noselect">{foreword}</h1>
-		<h1 class="name noselect">{name}</h1>
-
-		<p class="subtext">
-			I am a Filipino <TextLink url="/me" text="international student" isBold={true}/>
-			based in Kyoto.
-
-			<br class="hide"/>
-			an avid <TextLink url="/thoughts" text="sinigang eater" isBold={true}/>,
-			and a <TextLink url="/photos" text="scenery catcher" isBold={true}/>.
-			
-			<br/><br/>
-			
-			ようこそ 👋
-		</p>
+	<div class="flex flex-col items-center justify-center h-[70vh]">
+		<h2 class="text-2xl sm:text-3xl text-white font-bold [text-shadow:0_2px_10px_#fff] noselect">
+			Hi! I am
+		<h1 class="text-7xl sm:text-8xl text-white font-bold italic tracking-wide [text-shadow:0_2px_10px_#fff] noselect">
+			{name}
+		</h1>
+		<h4 class="text-lg text-white font-bold text-center [text-shadow:0_2px_6px_#fff]">
+			exploring chemistry, computation, & photography.
+		</h4>
 	</div>
+
+	<div class="fixed bottom-8 right-8 sm:right-20 w-full items-end text-right tracking-wide italic flex-col text-white">
+		<div class="mb-1 w-30 h-[1px] bg-white"></div>
+		<p class="text-sm">Featuring {featuredLabel}</p>
+		<p class="text-sm">Last update: {lastUpdated}</p>
+		<div class="mt-1 w-40 h-[1px] bg-white"></div>
+	</div>
+
+	<script>
+        import "../scripts/index-playground.js";
+    </script>
+
 </BaseLayout>
 

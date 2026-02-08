@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from './BaseLayout.astro';
+import Prose from '../components/Prose.astro';
+
+const { frontmatter } = Astro.props;
+const returnMessage = "<<";
+
+import Button from '../components/buttons/Button.astro';
+
+let scale = frontmatter.image.scale;
+let width = frontmatter.image.width * scale;
+let height = frontmatter.image.height * scale;
+---
+<style>
+    .return {
+        cursor: pointer;
+    }
+    .melink {
+        border: 1px solid var(--flamingo);
+        color: var(--flamingo);
+        margin-bottom:5%;
+        display: inline-block;
+        cursor: ne-resize
+    }
+    .melink:hover {
+        background-color:var(--mainred);
+        color:var(--bgwhite);
+        border: 0px;
+    }
+
+</style>
+
+<BaseLayout pageTitle = {frontmatter.title}>
+    <p class="text-flamingo font-bold hover:[text-shadow:0_2px_10px_var(--color-flamingo)] noselect"><a class="return" href="/tinker/">{returnMessage}</a></p>
+    <div class="flex flex-col md:flex-row justify-around">
+        <div class="flex md:max-w-[50%] flex-col">
+            <Prose>
+                <slot/>
+            </Prose>
+        </div>
+        <div class="flex flex-col items-center">
+            <Image src={frontmatter.image.url} alt={frontmatter.image.alt} width={width} height={height}/>
+            <p class="!mt-2 text-sm text-center italic">{frontmatter.image.alt}</p>
+            <div class="mt-4">
+            {frontmatter.linkText && <Button href={frontmatter.externalURL}>
+                <span>{frontmatter.linkText}</span>
+                </Button>
+            }
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+

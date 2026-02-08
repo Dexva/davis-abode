@@ -1,0 +1,95 @@
+---
+import '../../styles/global.css';
+const { paper , index } = Astro.props; 
+
+import Paragraph from '../typography/Paragraph.astro';
+import Prose from '../Prose.astro';
+
+function dispAuthor(author:any,index:number,arrayLen:number) {
+    let isLast = (index == arrayLen-1);
+    if (!isLast) {
+        return author + ", ";
+    }
+    return author;
+}
+---
+
+<style>
+    .link {
+        cursor: ne-resize;
+        text-decoration:underline;
+        color: var(--mainblack);
+    }
+    .link:hover{
+        text-decoration: underline;;
+        color: var(--color-flamingo);
+        border: none;
+    }
+    
+    .outer {
+        padding: 1em;
+        display: flex;
+        text-wrap: wrap;
+    }
+    .authors {
+        font-size: medium;
+    }
+    .title {
+        font-weight:bold;
+        color: var(--mainblack);
+        font-size: 120%;
+    }
+    .date {
+        margin-bottom:10px;
+        font-size: medium;
+    }
+    .left {flex: 4;}
+    .right {flex: 1;}
+
+    @media screen and (min-width: 700px) {
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        .right {
+            text-align: right;
+        }
+    }
+</style>
+
+
+<div class="my-4 p-4 flex flex-wrap flex-col border-[0.5px]">
+    <h3 class="title"> 
+        {index+1} /
+        <a href={paper.url} target="_blank" class="link"> {paper.title} </a>
+    </h3>
+    
+    <div class="container">
+        <p class="authors left">
+            {paper.authors.map((author : any, index:number, array:any)=>(
+                <span>{dispAuthor(author,index,array.length)}</span>
+            ))}
+        </p>
+        <p  class="date right">({paper.year})</p>
+    </div>
+
+    <div class="mt-2 text-justify">
+        <Paragraph><slot /></Paragraph>
+    </div>   
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const desc = document.querySelector(".paperdesc");
+      const links = desc?.querySelectorAll("a")
+      if (links) {
+          links.forEach((link) => {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        });
+      }
+      
+    });
+</script>
+

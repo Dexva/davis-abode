@@ -1,0 +1,57 @@
+---
+/*======== LAYOUT ========*/
+import PageLayout from '../layouts/PageLayout.astro';
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
+import Link from '../components/typography/Link.astro';
+import SectionHeading from '../components/typography/SectionHeading.astro';
+/*======== COMPONENTS ========*/
+import Tab from '../components/containers/Tab.astro';
+import PaperTab from '../components/containers/PaperTab.astro';
+/*======== ASSETS ========*/
+const experimentsPosts = Object.values(import.meta.glob('./tinker/experiments/*.md', {eager:true}))
+const softwarePosts = Object.values(import.meta.glob('./tinker/software/*.md', {eager:true}))
+const enggPosts = Object.values(import.meta.glob('./tinker/engineering/*.md', {eager:true}))
+const papersPosts = Object.values(import.meta.glob('./tinker/papers/*.md', {eager:true}));
+---
+
+<PageLayout siteTabText="tinker" pageTitle="tinker." pageSubtitle="プロジェクト">
+
+    <SectionHeading>experiments_</SectionHeading>
+    <Paragraph></Paragraph>
+    <div class="container flex flex-wrap justify-evenly">
+        {experimentsPosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+    
+    <SectionHeading>engineering_</SectionHeading>
+    <Paragraph>Memorable projects brought to life.</Paragraph>
+    <div class="container flex flex-wrap justify-evenly">
+        {enggPosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+    
+
+    <SectionHeading>software_</SectionHeading>
+    <Paragraph>Crafting digital experiences.</Paragraph>
+    <div class="container flex flex-wrap justify-evenly">
+        {softwarePosts.map((post:any)=>(
+            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
+        ))}
+    </div>
+
+    <SectionHeading>papers_</SectionHeading>
+    <Paragraph>
+        A collection of my highschool research and works (primarily in mathematical modeling).
+    </Paragraph>
+    <div class="flex flex-col">
+        {papersPosts.map((post:any, index:number)=>(
+            <PaperTab paper={post.frontmatter} index={index}>
+                <post.default />
+            </PaperTab>
+        ))}
+    </div>
+
+</PageLayout>

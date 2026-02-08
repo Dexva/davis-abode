@@ -1,14 +1,18 @@
 ---
-import '../styles/global.css';
+import { Image } from 'astro:assets';
+/*======== LAYOUT ========*/
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TextLink from '../components/TextLink.astro';
-import Tab from '../components/Tab.astro';
-import PaperTab from '../components/PaperTab.astro';
-
-const allContent = Object.values(import.meta.glob('./me/*.md', { eager: true }));
-const codePosts = allContent.filter((post: any) => post.frontmatter.tags.includes("code"));
-const enggPosts = allContent.filter((post: any) => post.frontmatter.tags.includes("engineering"));
-const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:true}));
+/*======== TYPOGRAPHY ========*/
+import Paragraph from '../components/typography/Paragraph.astro';
+import Link from '../components/typography/Link.astro';
+/*======== COMPONENTS ========*/
+import Button from '../components/buttons/Button.astro';
+/*======== ASSETS ========*/
+import mePhoto from '../assets/me.JPG'; 
+import GitHubIcon from '../assets/GitHubIcon.astro';
+import InstagramIcon from '../assets/InstagramIcon.astro';
+import LinkedInIcon from '../assets/LinkedInIcon.astro';
+const iconClass = "w-6 h-6";
 ---
 
 <style>
@@ -43,63 +47,71 @@ const papersPosts = Object.values(import.meta.glob('./me/papers/*.md', {eager:tr
     }
 </style>
 
-<BaseLayout pageTitle="me">
-    <h2 class="title">知り合う</h2>
-    <h1 class="title">meet, me!</h1>
+<BaseLayout siteTabText="me">
     
-    <p class="foreword justify">
-        My name is Davis Nicholo A. Magpantay...
-        which is quite long, so I simply go by <i>Davis</i>.
-        
-        <br><br>
-        
-        I graduted from <TextLink text="Pisay-Main" url="https://en.wikipedia.org/wiki/Philippine_Science_High_School_Main_Campus"isBold={false} /> in 2024
-        and am now studying at <TextLink text="Kyoto University 京都大学" url="https://www.kyoto-u.ac.jp/en" isBold={false} />
-        as an <TextLink text="iUP scholar" url="https://www.iup.kyoto-u.ac.jp/" isBold={false}/>. This April (2025), I'm entering the University's
-        Department of Chemical Science and Technology.        
-
-        <br><br>
-
-        I've compiled some cool things I've done on this page.
-        For more details, feel free to check out my 
-        <TextLink text="resume" url="https://docs.google.com/document/d/1KXJEWt627nFji5kxMUQj4V-VpzK9vBnUJcHAE78RGC0/edit?usp=sharing"/>.
-    </p>
-
-
-    <h2 class="bold section">engineering_</h2>
-    <p class="sectiondesc justify">
-        As someone in the engineering discipline, I have had some fun projects past. Here are my picks:
-    </p>
-    <div class="container">
-        {enggPosts.map((post:any)=>(
-            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-        ))}
+    <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Image 
+            src={mePhoto}
+            width={200}
+            alt="me photo"
+            class="rounded-full"
+        />
+        <div class="flex-col">
+            <h1 class="text-4xl sm:text-5xl font-bold text-center sm:text-left
+                        bg-gradient-to-l from-flamingo to-peach text-transparent bg-clip-text">
+                Davis Nicholo <br> Magpantay
+            </h1>
+            <h1 class="text-lg sm:text-xl mt-2 font-bold text-center sm:text-left
+                        bg-gradient-to-l from-flamingo to-peach text-transparent bg-clip-text">
+                <i>デイヴィス・ニコロ・<br class="hidden sm:inline md:hidden">マグパンタイ</i>
+            </h1>
+        </div>
     </div>
+
+    <div class="flex justify-center">
+        <div class="max-w-144 flex-col">
+            <Paragraph>
+                I'm a Filipino<Link href="/me/">international student</Link>based in Japan,
+                an avid<Link href="/thoughts/"><i>sinigang</i> eater</Link>, and a hobbyist<Link href="/photos/">scenery catcher</Link>.
+            </Paragraph>
+
+            <Paragraph>
+                As a 1st year Chemical Engineering undergrad at<Link href="https://www.kyoto-u.ac.jp/en">Kyoto University (京都大学)</Link>
+                supported by<Link href="https://www.iup.kyoto-u.ac.jp/">Kyoto iUP</Link>
+                and the<Link href="https://www.mgc.co.jp/foundation/eng/">Mitsubishi Gas Chemical Memorial Foundation</Link>,
+                I'm currently interested in studying the intersection of materials and computation.
+                I've previously<Link href="/tinker/">dabbled</Link> on projects that
+                span chemistry-related software. engineering, and even math modeling.
+            </Paragraph>
+
+            <Paragraph>
+                For more details, check out my<Link href="https://docs.google.com/document/d/1KXJEWt627nFji5kxMUQj4V-VpzK9vBnUJcHAE78RGC0/edit?usp=sharing">resume</Link>(you 
+                may reach me at the email indicated).
+                Also, feel free to check out my other platforms:
+            </Paragraph>
+
+            <div class="gap-4 flex-wrap">
+                <Button href="https://github.com/Dexva/">
+                    <GitHubIcon classlist={iconClass}/>
+                    <span>GitHub</span>
+                </Button>
+
+                <Button href="https://www.instagram.com/haiiamdavis?igsh=MWZsaGk4ZGQyZzhrcg==">
+                    <InstagramIcon classlist={iconClass}/>
+                    <span>Instagram</span>
+                </Button>
+
+                <Button href="https://www.linkedin.com/in/davis-nicholo-magpantay-986ba2249/">
+                    <LinkedInIcon classlist={iconClass}/>
+                    <span>LinkedIn</span>
+                </Button>
+            </div>
+        </div>
+    </div>
+
+
     
-
-    <h2 class="bold section">code_</h2>
-    <p class="sectiondesc justify">
-        One of my greatest joys lie in digital stuff.
-        These are some work that I am particularly proud of:
-    </p>
-    <div class="container">
-        {codePosts.map((post:any)=>(
-            <Tab title={post.frontmatter.title} subtitle={post.frontmatter.subtitle} route={post.url} thumbnail={post.frontmatter.image.url}/>
-        ))}
-    </div>
-
-    <h2 class="bold section">papers_</h2>
-    <p class="sectiondesc justify">
-        I also co-wrote several papers, primarily for math modeling contests or course-related research.
-        Here are the notable ones:
-    </p>
-    <div>
-        {papersPosts.map((post:any, index:number)=>(
-            <PaperTab paper={post.frontmatter} index={index}>
-                <post.default />
-            </PaperTab>
-        ))}
-    </div>
+    
 
 </BaseLayout>
 

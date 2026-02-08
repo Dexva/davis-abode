@@ -1,0 +1,52 @@
+---
+import '../../styles/global.css';
+const { url , frontmatter } = Astro.props;
+---
+
+<style>
+    .link {
+        cursor: ne-resize;
+        border: 1px solid rgba(0,0,0,0.2);
+    }
+    .link:hover, .link:active {
+        background-color: transparent;
+        border: 1px solid rgba(150, 33, 2, 0.4);
+        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.5);
+    }
+    .link:active {
+        box-shadow: 0 5px 5px rgba(150, 33, 2, 0.8);
+    }
+    .left {
+        flex: 1;
+    }
+    .right {
+        display: block;
+        flex: 1;
+        text-align: right;
+    }
+    .tag {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        background-color: #e2e8f0; /* Light gray background */
+        padding: 5px 10px; /* Padding inside the tag */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 0.875rem; /* Slightly smaller text */
+        white-space: nowrap;
+    }
+</style>
+
+<a href={url} class="link floating">
+    <div class="p-4 flex-row">
+        <div class="left flex-col">
+            <h3 class="text-xl sm:text-2xl text-flamingo font-bold">{frontmatter.title}</h3>
+            <p class="">{frontmatter.subtitle}</p>
+        </div>
+        <div class="right">
+            <p class="!mb-2"><i>{frontmatter.pubDate}</i></p>
+            {frontmatter.tags.map((tag: any) => (
+                <p class="tag">{tag}</p>
+            ))}
+        </div>
+    </div>
+</a>
