@@ -2,16 +2,19 @@
 import '../styles/global.css';
 import 'katex/dist/katex.min.css';
 import Header from '../components/Header.astro';
+import CommonHead from './CommonHead.astro';
 const { siteTabText } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<CommonHead siteTabText={siteTabText} />
+		<!-- <meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>davism / {siteTabText}</title>
+		<title>davism / {siteTabText}</title> -->
+
 	</head>
 	<body>
 		<Header />
@@ -19,7 +22,7 @@ const { siteTabText } = Astro.props;
 			<slot />
 		</div>
 		<script>
-			import "../scripts/menu.js";
+			import("../scripts/menu.js");
 		</script>
 	</body>
 

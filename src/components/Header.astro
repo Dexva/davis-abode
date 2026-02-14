@@ -11,17 +11,26 @@ const navLinks = [
   { href: "/photos/", label: "/photos" },
 ];
 
-const logo_class = isHomePage ?
-                   "text-white hover:[text-shadow:0_3px_8px_white]" :
-                   "text-flamingo hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+const activeIndexRaw = navLinks.findIndex((link) => {
+    if (pathname === link.href) return true;
+    return link.href !== '/' && pathname.startsWith(link.href);
+});
+const hasActiveLink = activeIndexRaw >= 0;
+const activeIndex = hasActiveLink ? activeIndexRaw : 0;
+
+const logo_class = isHomePage ? "text-white hover:[text-shadow:0_3px_8px_white]" :
+                                "text-flamingo hover:[text-shadow:0_3px_8px_var(--color-light2)]";
 
 const logo_class_base = "text-2xl sm:text-3xl font-bold tracking-wider";
 
-const navlinks_class = isHomePage ?
-                   "text-white bg-flamingo text-flamingo hover:[text-shadow:0_3px_8px_#fff]" :
-                   "text-flamingo bg-bg1 hover:[text-shadow:0_3px_8px_var(--color-light2)]";
+const navlinks_class = isHomePage ? "hover:[text-shadow:0_3px_8px_#fff]" :
+                                    "hover:[text-shadow:0_3px_8px_var(--color-light2)]";
 
-const navlinks_class_base = "!text-lg font-bold tracking-wider p-2 sm:p-0 sm:bg-transparent";
+const navlinks_class_base = "nav-link !text-lg font-bold tracking-wider px-6 py-3";
+
+const navTrackStyle = isHomePage
+    ? "--active-index:" + activeIndex + ";--nav-count:" + navLinks.length + ";--nav-text:#fff;--nav-text-active:#fff;--nav-track-bg:rgba(255,255,255,0.12);--nav-track-shadow:rgba(0,0,0,0.18);--nav-pill-bg:#eb5243;"
+    : "--active-index:" + activeIndex + ";--nav-count:" + navLinks.length + ";--nav-text:var(--color-flamingo);--nav-text-active:#fff;--nav-track-bg:var(--color-bg2);--nav-track-shadow:rgba(235,82,67,0.16);--nav-pill-bg:var(--color-flamingo);";
 
 const currentLink_class = "underline";
 ---
@@ -46,12 +55,28 @@ const currentLink_class = "underline";
         transform: translateX(15px);
         transition: opacity 0.2s ease, transform 0.2s ease;
     }
-    .nav-links-a {
-        box-shadow: 0 2px 6px black;
-        border-radius: 10px;
-    }
     a {
         cursor: pointer;
+    }
+
+    .nav-link {
+        color: var(--nav-text);
+        position: relative;
+        z-index: 1;
+        border-radius: 999px;
+        transition: color 0.2s ease;
+        text-decoration: none;
+    }
+
+    .nav-link[aria-current="page"] {
+        color: var(--nav-text-active);
+    }
+
+    @media screen and (max-width: 639px) {
+        .nav-link[aria-current="page"] {
+            background: var(--nav-pill-bg);
+            border-radius: 999px;
+        }
     }
 
     .expanded {
@@ -66,11 +91,52 @@ const currentLink_class = "underline";
             pointer-events: auto;
             position:static;
             transform: translateX(0);
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+            align-items: center;
+            gap: 0;
+            padding: 0.15rem;
+            border-radius: 999px;
+            background: var(--nav-track-bg);
+            box-shadow: inset 0 3px 6px var(--nav-track-shadow), inset 0 -1px 0 rgba(255,255,255,0.6);
+            position: relative;
         }
 
-        .nav-links-a {
-            box-shadow: none;
-        }        
+        .nav-links-pill {
+            display: block;
+            position: absolute;
+            top: 0.35rem;
+            bottom: 0.35rem;
+            left: calc(var(--active-index) * (100% / var(--nav-count)) + 0.35rem);
+            width: calc(100% / var(--nav-count) - 0.7rem);
+            background: var(--nav-pill-bg);
+            border-radius: 999px;
+            box-shadow: 0 6px 12px rgba(235,82,67,0.28);
+            transition: left 0.25s ease;
+            z-index: 0;
+        }
+
+        .nav-links[data-has-active="false"] .nav-links-pill {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 639px) {
+        .nav-links {
+            position: fixed;
+            top: 5.5rem;
+            right: 1.25rem;
+            z-index: 50;
+            padding: 0.75rem;
+            border-radius: 1rem;
+            background: var(--color-bg2);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.7);
+        }
+
+        .nav-links-pill {
+            display: none;
+        }
     }
 </style>
 
@@ -81,11 +147,13 @@ const currentLink_class = "underline";
     <nav>            
         <Hamburger />
 
-        <div class="nav-links flex flex-col sm:flex-row items-end gap-4 sm:gap-8 text-right">
+        <div class="nav-links flex flex-col sm:flex-row items-end gap-4 sm:gap-8 text-left" style={navTrackStyle} data-has-active={hasActiveLink ? "true" : "false"}>
+            <span class="nav-links-pill" aria-hidden="true"></span>
             {
                 navLinks.map((link)=>{
+                    const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
                     return (
-                        <a href={link.href} class:list={[navlinks_class, navlinks_class_base, "nav-links-a"]}>{link.label}</a>
+                        <a href={link.href} class:list={[navlinks_class, navlinks_class_base]} aria-current={isActive ? "page" : undefined}>{link.label}</a>
                     )
                 })
             }

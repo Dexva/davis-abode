@@ -42,7 +42,7 @@ I also used other platforms/tools for non-coding tasks.
 
 6. [three.js](https://threejs.org/) - for the [landing](../) 3D showcase.
 
-7. [SVGOMG](https://jakearchibald.github.io/svgomg/) - for optiimzing the viewport on the SVG icons.
+7. [SVGOMG](https://jakearchibald.github.io/svgomg/) - for optimizing the viewport on the SVG icons.
 
 8. [PageSpeed Insights](https://pagespeed.web.dev/) - for checking site performance.
 
