@@ -6,11 +6,11 @@ import Paragraph from '../components/typography/Paragraph.astro';
 /*======== COMPONENTS ========*/
 import ThoughtsTab from '../components/containers/ThoughtsTab.astro';
 /*======== ASSETS ========*/
-let allContent = Object.values(import.meta.glob('./thoughts/*.md', { eager: true }));
+let allContent = Object.values(import.meta.glob('./ponder/*.md', { eager: true }));
 allContent = allContent.sort((x,y) => new Date(y.frontmatter.pubDate) - new Date(x.frontmatter.pubDate));
 ---
 
-<PageLayout siteTabText="thoughts" pageTitle="thoughts." pageSubtitle="ブログ">
+<PageLayout siteTabText="ponder" pageTitle="ponder." pageSubtitle="思考">
     
     <Paragraph>
         <b>tl;dr: </b> <i>food recipes, shower thoughts, and everything in between...</i>

@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.0.6",
     "astro": "^5.2.5",
     "katex": "^0.16.22",
+    "pdfjs-dist": "^4.3.136",
     "preact": "^10.27.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",

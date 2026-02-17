@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import IndexLayout from '../layouts/IndexLayout.astro';
 const name = "Davis!";
-const lastUpdated = "2025/10/05";
+const lastUpdated = "2026/02/17";
 const featuredLabel = "caffeine molecule in 3D";
 ---
 
@@ -20,7 +20,7 @@ const featuredLabel = "caffeine molecule in 3D";
 	}
 </style>
 
-<BaseLayout siteTabText="">
+<IndexLayout siteTabText="">
 	<canvas class="fixed top-0 left-0 -z-10 w-[100%] h-[100%]" id="playground"></canvas>
 
 	<div class="flex flex-col items-center justify-center h-[70vh]">
@@ -45,5 +45,5 @@ const featuredLabel = "caffeine molecule in 3D";
         import "../scripts/index-playground.js";
     </script>
 
-</BaseLayout>
+</IndexLayout>
 

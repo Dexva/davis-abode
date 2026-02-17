@@ -7,13 +7,15 @@ const { siteTabText , pageTitle , pageSubtitle } = Astro.props;
 ---
 
 <BaseLayout siteTabText={siteTabText}>
-    <div class="mb-8 flex flex-col">
-        <PageSubTitle>{pageSubtitle}</PageSubTitle>
-        <PageTitle >{pageTitle}</PageTitle>
-        <span class="h-0.5 bg-flamingo"></span>
-    </div>
-    <div class="ml-10 mr-10 flex flex-col">
-        <slot />
+    <div class="sm:ml-10 sm:mr-10 lg:ml-20 lg:mr-20 flex flex-col">
+        <div class="mb-8 flex flex-col">
+            <PageSubTitle>{pageSubtitle}</PageSubTitle>
+            <PageTitle >{pageTitle}</PageTitle>
+            <span class="h-0.5 bg-flamingo"></span>
+        </div>
+        <div class="flex flex-col">
+            <slot />
+        </div>
     </div>
     
 </BaseLayout>

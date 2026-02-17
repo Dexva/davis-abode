@@ -29,9 +29,9 @@ const { title , subtitle, route, thumbnail } = Astro.props;
 
 </style>
 
-<a class="active:text-flamingo w-[100%] sm:w-120"href={route}>
-    <div class="flex-col tab mb-8 bg-none rounded-[20px] floating">
-            <img class="w-full h-[200px]" src={thumbnail}>
+<a class="active:text-flamingo w-[85%] sm:w-90"href={route}>
+    <div class="h-120 flex-col tab mb-8 bg-none rounded-[20px] floating">
+            <img class="w-full h-90" src={thumbnail}>
             <div class="m-4 flex-col">
                 <h3 class="m-1 text-xl font-bold noselect">{title}</h3>
                 <p class=" m-1 font-medium noselect">{subtitle}</p>

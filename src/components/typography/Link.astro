@@ -1,8 +1,14 @@
 ---
 import '../../styles/global.css';
-const { href } = Astro.props;
+const { href, target } = Astro.props;
+let newtarget;
+if (target === "self") {
+    newtarget = "_self";
+} else {
+    newtarget = "_blank";
+}
 ---
 
-<a class="text-flamingo hover:text-bg2 hover:bg-flamingo cursor-help" href={href} target="_blank">
+<a class="text-flamingo hover:text-bg2 hover:bg-flamingo cursor-help" href={href} target={newtarget}>
     <slot />
 </a>

@@ -2,7 +2,7 @@
 layout: ../../layouts/ThoughtsPostLayout.astro
 title: 'About Abode'
 pubDate: 2025/08/25
-subtitle: 'how I built this site'
+subtitle: 'a colophon on this site'
 author: 'Davis'
 tags: ['technical']
 ---

@@ -1,0 +1,65 @@
+---
+/*======== LAYOUT ========*/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+/*======== COMPONENTS ========*/
+import PageTitle from '../../components/typography/PageTitle.astro';
+import Button from '../../components/buttons/Button.astro';
+/*======== ASSETS ========*/
+const pdfUrl = "/assets/davis-resume.pdf";
+---
+
+<style>
+    .resume-container {
+        height: calc(100vh - 80px);
+    }
+
+    .resume-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+
+<BaseLayout siteTabText="me / resume">
+    <div class="flex flex-col items-center justify-center">
+        <div class="resume-container w-full sm:w-[60%] flex flex-col">
+            <div class="flex flex-row flex-wrap justify-center items-center gap-4 mb-4"> 
+                <Button href="/assets/davis-resume.pdf" variant="primary">Download</Button>
+                <button id="print-btn" class="items-center gap-2 py-2 px-4 noselect border-solid border-flamingo rounded-sm border-[2px] text-flamingo hover:bg-flamingo hover:text-bg1 floating">
+                    Print
+                </button>
+            </div>
+            
+            <iframe 
+                src="/assets/davis-resume.pdf" 
+                title="Davis's Resume"
+            />
+        </div>
+    </div>
+</BaseLayout>
+
+<script>
+    function setupPrintButton() {
+        const printBtn = document.getElementById('print-btn');
+        if (printBtn) {
+            printBtn.addEventListener('click', () => {
+                const iframe = document.querySelector('iframe');
+                if (iframe) {
+                    try {
+                        iframe.contentWindow.print();
+                    } catch (e) {
+                        // Fallback: open PDF in new tab and print
+                        window.open('/assets/davis-resume.pdf', '_blank');
+                    }
+                }
+            });
+        }
+    }
+
+    // Run on initial load
+    setupPrintButton();
+
+    // Re-run after Astro transitions
+    document.addEventListener('astro:after-swap', setupPrintButton);
+</script>
+

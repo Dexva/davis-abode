@@ -16,7 +16,7 @@ Physicists, well, would just blame the [Maxwell equations](https://en.wikipedia.
 
 Regardless of what it is, I hope you, dear reader, can enjoy all the thoughts that I'll be dumping on this site--from academic ideas, broke-college-student recipes, and even 日本語の練習.
 
-... now don't mind the rest of this post, 'cause I'll also be testing `.md` and [thoughts page](/thoughts/) styling here.
+... now don't mind the rest of this post, 'cause I'll also be testing `.md` and [thoughts page](/ponder/) styling here.
 
 ## Experiments ahead! [2#]
 
