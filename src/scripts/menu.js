@@ -12,8 +12,13 @@ function initHamburgerMenu() {
     }
 }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+// Initialize immediately if DOM is already loaded, otherwise wait
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+} else {
+    // DOM is already loaded, run immediately
+    initHamburgerMenu();
+}
 
 // Reinitialize on view transition
 document.addEventListener('astro:after-swap', initHamburgerMenu);

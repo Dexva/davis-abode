@@ -8,15 +8,21 @@ const hamburger_class = isHomePage ? "bg-white" : "bg-flamingo";
 <style>    
     .hamburger {
         cursor: pointer;
-        display:flex;
-        flex-direction:column;
-        margin-left:auto;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        pointer-events: auto;
+        position: relative;
+        z-index: 100;
+        padding: 8px;
+        touch-action: manipulation;
     }
     .hamburger .line {
         display: block;
         width: 25px;
         height: 3px;
         margin-bottom: 5px;
+        pointer-events: none;
     }
 
     @media screen and (min-width: 640px) {
