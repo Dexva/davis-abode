@@ -1,11 +1,17 @@
-# Davis Abode
+# Abode
 
-Built with Astro, Tailwind, three.js.
-Images on postimg.cc 
+A home for my digital presence ^\_^ 
 
 
-## Used Resources:
-https://towebp.app/
-https://pagespeed.web.dev/
-Icons by [icons8](https://icons8.com/)
+### Tech:
+
+- Astro
+- Tailwind
+
+
+### Other Tools:
+- [postimg](https://postimg.cc) for images
+- [towebp](https://towebp.app/) for
+- [pagespeed.web](https://pagespeed.web.dev/) for UI/UX check
+- [icons8](https://icons8.com/) for icons
 https://jakearchibald.github.io/svgomg/

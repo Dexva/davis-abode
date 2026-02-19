@@ -16,7 +16,7 @@
 - bouncing ball game generator (so you can finally play ur own reels)
 
 to-do:
-- footer
+[-] footer 
 - move some of the tinker to "me" (esp. notable projects, etc.)
 - put on some analytics on this site lmfao
 - a mix of brainrot (brianrot lol)

@@ -1,7 +1,92 @@
 ---
+import GitHubIcon from '../assets/GitHubIcon.astro';
+import InstagramIcon from '../assets/InstagramIcon.astro';
+import LinkedInIcon from '../assets/LinkedInIcon.astro';
 
+const year = new Date().getFullYear();
+const iconClass = "w-6 h-6";
+
+const navLinks = [
+    { href: "/me/", label: "/me" },
+    { href: "/tinker/", label: "/tinker" },
+    { href: "/ponder/", label: "/ponder" },
+    { href: "/photos/", label: "/photos" },
+];
+
+const socialLinks = [
+    {
+        href: "https://github.com/Dexva/",
+        label: "GitHub",
+        icon: GitHubIcon,
+    },
+    {
+        href: "https://www.instagram.com/haiiamdavis?igsh=MWZsaGk4ZGQyZzhrcg==",
+        label: "Instagram",
+        icon: InstagramIcon,
+    },
+    {
+        href: "https://www.linkedin.com/in/davis-nicholo-magpantay-986ba2249/",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+    },
+];
 ---
 
-<!-- <div class="bg-black mt-40 h-100"> -->
+<footer class="mt-24 bg-flamingo text-white">
+    <div class="mx-8 sm:mx-20 py-8 sm:py-10 flex flex-col gap-6">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+            <div class="flex flex-col gap-2">
+                <a href="/" class="text-3xl font-bold tracking-wide hover:[text-shadow:0_2px_10px_#fff]">/d.</a>
+                <p class="text-sm sm:text-base font-bold">Davis Nicholo Magpantay</p>
+                <p class="text-xs sm:text-sm opacity-90">exploring chemistry, computation, & photography.</p>
+                <a
+                    href="mailto:davisnicholomagpantay@gmail.com"
+                    class="text-xs sm:text-sm underline underline-offset-4 hover:[text-shadow:0_2px_10px_#fff]"
+                >
+                    davisnicholomagpantay@gmail.com
+                </a>
+            </div>
 
-<!-- </div> -->
+            <div class="flex flex-col gap-2">
+                <p class="font-semibold">Navigate</p>
+                <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm sm:text-base">
+                    {
+                        navLinks.map((link) => (
+                            <a href={link.href} class="hover:underline underline-offset-4">{link.label}</a>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <p class="font-semibold">Elsewhere</p>
+                <div class="flex items-center gap-3">
+                    {
+                        socialLinks.map((social) => {
+                            const Icon = social.icon;
+                            return (
+                                <a
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="p-2 rounded-full border border-white/50 hover:bg-white hover:text-flamingo"
+                                    aria-label={social.label}
+                                    title={social.label}
+                                >
+                                    <Icon classlist={iconClass} />
+                                </a>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-white/40"></div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs sm:text-sm">
+            <p>© {year} Davis Magpantay</p>
+            <p>Built with Astro</p>
+        </div>
+    </div>
+</footer>

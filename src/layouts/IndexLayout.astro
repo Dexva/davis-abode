@@ -3,18 +3,13 @@ import '../styles/global.css';
 import 'katex/dist/katex.min.css';
 import Header from '../components/Header.astro';
 import CommonHead from './CommonHead.astro';
+import Footer from '../components/Footer.astro';
 const { siteTabText } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<CommonHead siteTabText={siteTabText} />
-		<!-- <meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>davism / {siteTabText}</title> -->
-
 	</head>
 	<body>
 		<Header />
@@ -23,6 +18,4 @@ const { siteTabText } = Astro.props;
 		</div>
 		<script src="../scripts/menu.js"></script>
 	</body>
-
-	<div class="h-8"></div>
 </html>
