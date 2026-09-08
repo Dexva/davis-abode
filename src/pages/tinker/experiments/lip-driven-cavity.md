@@ -5,7 +5,7 @@ pubDate: 2026-09-08
 subtitle: 'Implemented a basic fluid sim in Python using Taichi'
 author: 'Davis'
 image:
-    url: '/assets/me/experiments/lid-driven-cavity.png'
+    url: '/assets/me/experiments/lid-driven-cavity-gif.gif'
     alt: 'Lid-driven cavity simulation.'
     width: 942
     height: 449
