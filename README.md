@@ -15,3 +15,4 @@ A home for my digital presence ^\_^
 - [pagespeed.web](https://pagespeed.web.dev/) for UI/UX check
 - [icons8](https://icons8.com/) for icons
 https://jakearchibald.github.io/svgomg/
+- Google search console for checks
