@@ -65,9 +65,9 @@ It should be noted that we can also run the implicit viscosity solver at the sam
 
 ## Technical Details
 
-I took [handwritten notes](https://drive.google.com/file/d/1TixNpWHopd3hcpqVqVkU63eL9kPKschX/view?usp=sharing) (uploaded on GDrive) as I was implementing this mini-project and trying to wrap my head around the algorithm. The details can be found in these notes (which I might typeset later on).
+I took [handwritten notes](https://drive.google.com/file/d/1TixNpWHopd3hcpqVqVkU63eL9kPKschX/view?usp=sharing) (uploaded on GDrive) as I was implementing this mini-project and trying to wrap my head around the algorithm. 
 
-As a starting point for a brief technical overview, however, we can begin with the incompressible NS equation (i.e., $\nabla \cdot {\bm{u}}=0$) with no external forces:
+As a starting point, we can begin with the incompressible NS equation (i.e., $\nabla \cdot {\bm{u}}=0$) with no external forces:
 
 $$
 \frac{\partial \bm{u}}{\partial t} + (\bm{u} \cdot \nabla)\bm{u} = \frac{1}{\rho} \nabla p + \nu \nabla ^ 2 \bm{u}
